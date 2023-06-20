@@ -41,3 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sand
+    uniqueID: 3639652561
+    locked: 0
+  - name: Wall
+    uniqueID: 443448599
+    locked: 0
+  - name: Decor
+    uniqueID: 1293693767
+    locked: 0
+  - name: Interract
+    uniqueID: 2052466069
+    locked: 0
+  - name: Character
+    uniqueID: 3346442799
+    locked: 0
+  - name: UI
+    uniqueID: 3440634417
+    locked: 0
