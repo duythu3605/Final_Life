@@ -933,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 1720024776}
   _manaBar: {fileID: 978750}
-  _avatar: {fileID: 0}
+  _avatar: {fileID: 1369515365}
 --- !u!1 &619265550
 GameObject:
   m_ObjectHideFlags: 0
