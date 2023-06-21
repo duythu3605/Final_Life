@@ -6,7 +6,7 @@ public class HeroMove : MonoBehaviour
 {
     private Animator _animator;
     public Rigidbody2D _rb2D;
-    public SpeedController _speedController;
+    private SpeedController _speedController;
 
     public void Init(SpeedSetting speedSetting , int index)
     {

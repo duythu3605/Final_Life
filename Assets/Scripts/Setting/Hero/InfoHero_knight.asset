@@ -15,9 +15,14 @@ MonoBehaviour:
   Avatar: {fileID: 1350823345, guid: 2fbe7ea0d67d74342a1a30f0d7ff8bdb, type: 3}
   Name: Knight
   potentialPoint: 0
-  Speed: 150
   heroType: 1
   healthSetting: {fileID: 11400000, guid: 2ba858a9edf1c6e4b8da2e9b7171d32d, type: 2}
   manaSetting: {fileID: 11400000, guid: 042d13f37c59a414fade9e961136f1eb, type: 2}
   damageSetting: {fileID: 11400000, guid: 24ee582c4f339254281252a1b0e38d35, type: 2}
   speedSetting: {fileID: 11400000, guid: e24c8acbcb0bdeb46bcc25f3c4b3485e, type: 2}
+  skillSettings:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 4c4af058785a0424cac4f544c71d96e2, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: 97935ce481a9d9e408b4758aad598326, type: 2}

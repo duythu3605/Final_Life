@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 1019031927}
   - component: {fileID: 1019031926}
   m_Layer: 5
-  m_Name: FisrtAttack (2)
+  m_Name: ThirdAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2278,6 +2278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heroController: {fileID: 0}
+  GameInputUI: {fileID: 0}
   GamePlayingUI: {fileID: 0}
 --- !u!4 &1499949999
 Transform:
@@ -2962,8 +2963,9 @@ GameObject:
   - component: {fileID: 1943921139}
   - component: {fileID: 1943921138}
   - component: {fileID: 1943921137}
+  - component: {fileID: 1943921141}
   m_Layer: 5
-  m_Name: GameInput
+  m_Name: GameInputUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3055,6 +3057,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1943921141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1943921136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f4f78de17cf2c643911a08b7d8ba0af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackButton: {fileID: 643874184}
+  _firstSkillButton: {fileID: 891574228}
+  _secondSkillButton: {fileID: 1929740503}
+  _thirdSkillButton: {fileID: 1019031926}
+  _abilityButton:
+  - {fileID: 1569079263}
+  - {fileID: 1140479217}
+  - {fileID: 69519634}
 --- !u!1 &2042399052
 GameObject:
   m_ObjectHideFlags: 0

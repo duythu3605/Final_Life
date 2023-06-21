@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 [CreateAssetMenu(menuName ="Hero/Info", fileName ="InfoHero")]
 public class HeroInfoSetting : ScriptableObject
@@ -20,4 +21,7 @@ public class HeroInfoSetting : ScriptableObject
     [Header("Damage/Speed")]
     public DamageSetting damageSetting;
     public SpeedSetting speedSetting;
+
+    [Header("Skill"), SerializedDictionary("Skill", "Skill Setting")]
+    public SerializedDictionary<CharacterSkills, AbstractSkillSetting> skillSettings;
 }
