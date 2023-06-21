@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95c9ef3de8208a49acdc862740230e7, type: 3}
+  m_Name: Normal_AttackMeleeSkill
+  m_EditorClassIdentifier: 
+  Avatar: {fileID: 1628289180, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Normal Attack
+  Description: Attack target near player.
+  skillLevelSetting:
+    _serializedList:
+    - Key: 1
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 12
+        critical: 0
+        range: 0
+    - Key: 2
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 40
+        critical: 0
+        range: 0
+    - Key: 3
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 95
+        critical: 0
+        range: 0
+    - Key: 4
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 130
+        critical: 0
+        range: 0
+    - Key: 5
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 174
+        critical: 0
+        range: 0
+    - Key: 6
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 210
+        critical: 0
+        range: 0
+    - Key: 7
+      Value:
+        coolDownTime: 0.35
+        manaExpend: 0
+        damage: 290
+        critical: 0
+        range: 0

@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    #region HealthInfor
-    [SerializeField]
+    #region HealthInfor    
     private HealthSetting _healthSetting;
 
     private HealthLevelSetting _levelSetting => _healthSetting.levelSettings[LevelIndex];
@@ -45,9 +44,9 @@ public class HealthController : MonoBehaviour
         CurrentHealth = MaxHealth = _healthController.health;
     }
 
-    public void OnManaIncrease(float value) => CurrentHealth += value;
+    public void OnHealthIncrease(float value) => CurrentHealth += value;
 
-    public void OnManaDecrease(float value) => CurrentHealth -= value;
+    public void OnHealthDecrease(float value) => CurrentHealth -= value;
 
     public void LevelUp()
     {
