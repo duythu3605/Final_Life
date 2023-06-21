@@ -9,11 +9,20 @@ public class GameManager : GameSingleton<GameManager>
     [HideInInspector]
     public HeroController heroController;
     #endregion
+
+    [HideInInspector]
+    public GamePlayingUI GamePlayingUI;
     protected override void OnAwake()
     {
         GameObject player = GameObject.FindWithTag("Hero");
 
         heroController = player.GetComponent<HeroController>();
         heroController.InitComponent();
+
+        GamePlayingUI = GameObject.Find(nameof(GamePlayingUI)).GetComponent<GamePlayingUI>();
+        GamePlayingUI.Init(heroController.healthController, heroController.manaController);
+
+
+        heroController.InitEvent();
     }
 }

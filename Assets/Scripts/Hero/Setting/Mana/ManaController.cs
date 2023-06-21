@@ -5,7 +5,6 @@ using UnityEngine;
 public class ManaController : MonoBehaviour
 {
     #region ManaInfor
-    [SerializeField]
     private ManaSetting _manaSetting;
 
     private ManaLevelSetting _levelSetting => _manaSetting.levelSettings[LevelIndex];

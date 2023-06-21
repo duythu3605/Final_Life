@@ -8,8 +8,7 @@ public class HeroInfoSetting : ScriptableObject
     [Header("Information Hero")]
     public Sprite Avatar;
     public string Name;
-    public float potentialPoint;
-    public float Speed;
+    public float potentialPoint;    
     
     [Header("Type Hero")]
     public HeroType heroType;
@@ -18,6 +17,7 @@ public class HeroInfoSetting : ScriptableObject
     public HealthSetting healthSetting;
     public ManaSetting manaSetting;
 
-    //[Header("Skill")]
-
+    [Header("Damage/Speed")]
+    public DamageSetting damageSetting;
+    public SpeedSetting speedSetting;
 }

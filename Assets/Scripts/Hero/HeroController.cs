@@ -8,7 +8,7 @@ public class HeroController : MonoBehaviour
     public HeroInfoSetting heroInfoSetting;
 
     public DynamicJoystick dynamicJoystick;
-    
+    public bool IsJoytickDragging => dynamicJoystick.Direction != Vector2.zero;
     #endregion
 
     [HideInInspector]
@@ -16,6 +16,10 @@ public class HeroController : MonoBehaviour
 
     [HideInInspector]
     public ManaController manaController;
+    [HideInInspector]
+    public DamageController damageController;
+    [HideInInspector]
+    public SpeedController speedController;
 
     [HideInInspector]
     public HeroMove heroMove;
@@ -25,25 +29,34 @@ public class HeroController : MonoBehaviour
         //heroSkillSystem = GetComponent<HeroSkillSystem>();
         healthController = GetComponent<HealthController>();
         manaController = GetComponent<ManaController>();
+        damageController = GetComponent<DamageController>();
+        speedController = GetComponent<SpeedController>();
         heroMove = GetComponent<HeroMove>();
         //potentialPointController = GetComponent<PotentialPointController>();
         //heroInteract = GetComponent<HeroInteractItem>();
+    }
+    public void InitEvent()
+    {
+        InitData();
     }
 
     private void InitData()
     {
         //heroSkillSystem.Init(this);
+        heroMove.Init(heroInfoSetting.speedSetting,1);
         healthController.Init(heroInfoSetting.healthSetting, 1);
         manaController.Init(heroInfoSetting.manaSetting, 1);
+        damageController.Init(heroInfoSetting.damageSetting, 1);
+        speedController.Init(heroInfoSetting.speedSetting, 1);
         //potentialPointController.Init(heroSetting);
     }
 
 
     public void FixedUpdate()
-    {
-        
+    {       
         float horizontial = dynamicJoystick.Horizontal;
         float vertical = dynamicJoystick.Vertical;
-        heroMove.OnMove(horizontial,vertical, heroInfoSetting.Speed);
+        if (IsJoytickDragging == false) return;
+        heroMove.OnMove(horizontial,vertical);
     }
 }
