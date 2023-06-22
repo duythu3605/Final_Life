@@ -10,60 +10,60 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b95c9ef3de8208a49acdc862740230e7, type: 3}
-  m_Name: Third_AttackMeleeSkill
+  m_Name: Second_AttackMelee
   m_EditorClassIdentifier: 
-  Avatar: {fileID: -981518817, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
-  Name: Storm Sword.
-  Description: Skill create storm sword!
+  Avatar: {fileID: -501785192, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Slash Fire.
+  Description: When slash blade create a fire attack target.
   skillLevelSetting:
     _serializedList:
     - Key: 1
       Value:
-        coolDownTime: 16
-        manaExpend: 0
-        damage: 150
+        coolDownTime: 10
+        manaExpend: 50
+        damage: 100
         critical: 0
-        range: 2.5
+        range: 0
     - Key: 2
       Value:
-        coolDownTime: 15.5
-        manaExpend: 0
-        damage: 230
+        coolDownTime: 9
+        manaExpend: 45
+        damage: 200
         critical: 0
-        range: 2.5
+        range: 0
     - Key: 3
       Value:
-        coolDownTime: 15
-        manaExpend: 0
-        damage: 310
+        coolDownTime: 8
+        manaExpend: 40
+        damage: 300
         critical: 0
-        range: 2.5
+        range: 0
     - Key: 4
       Value:
-        coolDownTime: 14.5
-        manaExpend: 0
-        damage: 390
+        coolDownTime: 7
+        manaExpend: 35
+        damage: 400
         critical: 0
-        range: 2.5
+        range: 0
     - Key: 5
       Value:
-        coolDownTime: 14
-        manaExpend: 0
-        damage: 470
+        coolDownTime: 6
+        manaExpend: 30
+        damage: 500
         critical: 0
-        range: 2.5
+        range: 0
     - Key: 6
       Value:
-        coolDownTime: 13.5
-        manaExpend: 0
-        damage: 550
+        coolDownTime: 5
+        manaExpend: 25
+        damage: 600
         critical: 0
         range: 0
     - Key: 7
       Value:
-        coolDownTime: 13
-        manaExpend: 0
-        damage: 630
+        coolDownTime: 4
+        manaExpend: 20
+        damage: 700
         critical: 0
-        range: 2.5
+        range: 0
   bullet: {fileID: 3118869057611330974, guid: 52076859d4d03ea4ea404af069f5d430, type: 3}

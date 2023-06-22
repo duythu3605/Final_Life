@@ -85,6 +85,8 @@ GameObject:
   - component: {fileID: 1664717425779713461}
   - component: {fileID: 2668096961064298296}
   - component: {fileID: 735503824404843091}
+  - component: {fileID: 5747938394158858703}
+  - component: {fileID: 8269299279169323674}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Hero
@@ -341,6 +343,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDownTime: 0
   _firePoint: {fileID: 9047868913050845472}
+  _fireDirection: {fileID: 4054961315520542244}
+  _targetTag: 1
 --- !u!114 &735503824404843091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,3 +359,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDownTime: 0
   _firePoint: {fileID: 9047868913050845472}
+--- !u!114 &5747938394158858703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169242085660103833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a4b06781d6ccee4c85eb3e8b5725e80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDownTime: 0
+  _firePoint: {fileID: 9047868913050845472}
+--- !u!114 &8269299279169323674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4169242085660103833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8dc47039d567824da455a6e1e09e98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coolDownTime: 0
+  _firePoint: {fileID: 4054961315520542244}

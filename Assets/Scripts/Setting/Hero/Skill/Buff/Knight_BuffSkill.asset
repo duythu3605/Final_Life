@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c8cdd870592bd4a880c3c70d7b0f91, type: 3}
+  m_Name: Knight_BuffSkill
+  m_EditorClassIdentifier: 
+  Avatar: {fileID: -1101477223, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Buff Damage
+  Description: Buff damage cho player.
+  skillLevelSetting:
+    _serializedList:
+    - Key: 1
+      Value:
+        coolDownTime: 20
+        manaExpend: 50
+        damageExpend: 100
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 5
+        range: 0
+    - Key: 2
+      Value:
+        coolDownTime: 19
+        manaExpend: 55
+        damageExpend: 200
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 5.5
+        range: 0
+    - Key: 3
+      Value:
+        coolDownTime: 18
+        manaExpend: 60
+        damageExpend: 300
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 6
+        range: 0
+    - Key: 4
+      Value:
+        coolDownTime: 17
+        manaExpend: 65
+        damageExpend: 400
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 6.5
+        range: 0
+    - Key: 5
+      Value:
+        coolDownTime: 16
+        manaExpend: 70
+        damageExpend: 500
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 7
+        range: 0
+    - Key: 6
+      Value:
+        coolDownTime: 15
+        manaExpend: 75
+        damageExpend: 600
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 7.5
+        range: 0
+    - Key: 7
+      Value:
+        coolDownTime: 14
+        manaExpend: 80
+        damageExpend: 700
+        healthExpend: 0
+        speedExpend: 0
+        timeUseful: 8
+        range: 0

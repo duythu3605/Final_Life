@@ -17,7 +17,8 @@ public class HeroSkillSystem : MonoBehaviour
 
 
         heroController.AttackEvent.AddObserver(skillBehaviors[CharacterSkills.Attack]);
-        //heroController.FirstSkillEvent.AddObserver(skillBehaviors[CharacterSkills.FirstSkill]);
+        heroController.FirstSkillEvent.AddObserver(skillBehaviors[CharacterSkills.FirstSkill]);
+        heroController.SecondSkillEvent.AddObserver(skillBehaviors[CharacterSkills.SecondSkill]);
         heroController.ThirdSkillEvent.AddObserver(skillBehaviors[CharacterSkills.ThirdSkill]);
 
     }
