@@ -66,4 +66,4 @@ MonoBehaviour:
         damage: 700
         critical: 0
         range: 0
-  bullet: {fileID: 3118869057611330974, guid: 52076859d4d03ea4ea404af069f5d430, type: 3}
+  bullet: {fileID: 7572918471362883376, guid: b0f09589f8615ba4f8c2cbdee92499e3, type: 3}

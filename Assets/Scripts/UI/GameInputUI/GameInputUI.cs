@@ -22,6 +22,7 @@ public class GameInputUI : MonoBehaviour
     public void SetEventHandler(Action onAttack, Action onFirstSkill, Action onSecondSkill, Action onThirdSkill)
     {
         var heroActionSkillBehavior = GameManager.Instance.heroController.heroSkillSystem.skillBehaviors;
+        var heroCheckMana = GameManager.Instance.heroController.manaController.CurrentMana;
 
         _attackButton.onClick.AddListener(() => onAttack?.Invoke());
 

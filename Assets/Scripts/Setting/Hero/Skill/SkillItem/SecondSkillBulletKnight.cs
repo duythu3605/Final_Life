@@ -1,21 +1,21 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehavior : MonoBehaviour
+public class SecondSkillBulletKnight : MonoBehaviour
 {
     protected float _damage;
     public void Init(float damage)
     {
         _damage = damage;
 
-        Destroy(gameObject, 0.1f);
+        Destroy(gameObject, 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         TakeDamage(collision, _damage);
+
         Destroy(gameObject);
     }
 
@@ -28,5 +28,4 @@ public class BulletBehavior : MonoBehaviour
         //HealLost.instance.onReciveDamage.Invoke(damage);
         healthController.OnHealthDecrease(damage);
     }
-
 }

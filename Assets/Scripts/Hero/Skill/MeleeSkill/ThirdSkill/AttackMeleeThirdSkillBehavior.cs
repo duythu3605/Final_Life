@@ -21,10 +21,15 @@ public class AttackMeleeThirdSkillBehavior : AbstractSkillBehavior
 
     public override void OnNotify(ManaController manaController)
     {
+        if (manaController.CurrentMana < _skillLevel.manaExpend)
+        {
+            Debug.Log("khong du mana");
+            return;
+        }
         if (IsCoolDown) return;
         StartCoroutine(StartCoolDown(coolDownTime));
 
-        if (!manaController) return;
+        
         manaController.OnManaDecrease(_skillLevel.manaExpend);
 
         _animator.Play("Attack_Special");

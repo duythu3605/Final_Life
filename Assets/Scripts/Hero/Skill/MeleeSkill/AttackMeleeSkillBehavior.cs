@@ -35,7 +35,7 @@ public class AttackMeleeSkillBehavior : AbstractSkillBehavior
         if (!manaController) return;
         manaController.OnManaDecrease(_skillLevel.manaExpend);
 
-        _animator.Play("Attack");
+        
         var colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, _skillLevel.range, LayerMask.GetMask(_targetTag.ToString()));
 
         if (colliders != null)
@@ -47,7 +47,7 @@ public class AttackMeleeSkillBehavior : AbstractSkillBehavior
     }
     private void Attack()
     {
-        _animator.Play("Fire");
+        _animator.Play("Attack");
 
         BulletBehavior buttletClone = Instantiate(_bullet, _firePoint.position, Quaternion.identity).GetComponent<BulletBehavior>();
         

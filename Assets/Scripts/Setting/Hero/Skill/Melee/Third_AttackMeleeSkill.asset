@@ -20,49 +20,49 @@ MonoBehaviour:
     - Key: 1
       Value:
         coolDownTime: 16
-        manaExpend: 0
+        manaExpend: 80
         damage: 150
         critical: 0
         range: 2.5
     - Key: 2
       Value:
         coolDownTime: 15.5
-        manaExpend: 0
+        manaExpend: 120
         damage: 230
         critical: 0
         range: 2.5
     - Key: 3
       Value:
         coolDownTime: 15
-        manaExpend: 0
+        manaExpend: 180
         damage: 310
         critical: 0
         range: 2.5
     - Key: 4
       Value:
         coolDownTime: 14.5
-        manaExpend: 0
+        manaExpend: 280
         damage: 390
         critical: 0
         range: 2.5
     - Key: 5
       Value:
         coolDownTime: 14
-        manaExpend: 0
+        manaExpend: 400
         damage: 470
         critical: 0
         range: 2.5
     - Key: 6
       Value:
         coolDownTime: 13.5
-        manaExpend: 0
+        manaExpend: 540
         damage: 550
         critical: 0
         range: 0
     - Key: 7
       Value:
         coolDownTime: 13
-        manaExpend: 0
+        manaExpend: 700
         damage: 630
         critical: 0
         range: 2.5

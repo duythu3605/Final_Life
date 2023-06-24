@@ -3484,6 +3484,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4169242085660103837, guid: c2879c6c469728e4ca9e4e85e9ffe3e0, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4169242085660103839, guid: c2879c6c469728e4ca9e4e85e9ffe3e0, type: 3}
       propertyPath: dynamicJoystick
       value: 

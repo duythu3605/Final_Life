@@ -16,22 +16,22 @@ MonoBehaviour:
     _serializedList:
     - Key: 1
       Value:
-        Speed: 150
+        Speed: 200
     - Key: 2
       Value:
-        Speed: 160
+        Speed: 220
     - Key: 3
       Value:
-        Speed: 170
+        Speed: 240
     - Key: 4
       Value:
-        Speed: 180
+        Speed: 260
     - Key: 5
       Value:
-        Speed: 190
+        Speed: 280
     - Key: 6
       Value:
-        Speed: 200
+        Speed: 300
     - Key: 7
       Value:
-        Speed: 210
+        Speed: 320

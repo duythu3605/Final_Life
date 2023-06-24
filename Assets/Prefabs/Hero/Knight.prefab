@@ -203,7 +203,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4169242085660103839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +373,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coolDownTime: 0
   _firePoint: {fileID: 9047868913050845472}
+  _fireDirection: {fileID: 4054961315520542244}
+  _targetTag: 1
 --- !u!114 &8269299279169323674
 MonoBehaviour:
   m_ObjectHideFlags: 0
