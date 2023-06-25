@@ -10,6 +10,9 @@ public abstract class AbstractSkillBehavior : MonoBehaviour, IObserver<ManaContr
 
     [HideInInspector]
     public float coolDownTime;
+    [HideInInspector]
+    public float manaExpend;
+
 
     public abstract void Init(AbstractSkillSetting skillSetting, int levelIndex);
 

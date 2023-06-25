@@ -32,7 +32,7 @@ public class HealthController : MonoBehaviour
     private HealthController _healthController;
 
     private float _currentHealth;
-    public float CurrentHealth { get => _currentHealth; private set { _currentHealth = value; onHealthChange?.Invoke(_currentHealth); } }
+    public float CurrentHealth { get => _currentHealth; private set { _currentHealth = value; onHealthChange?.Invoke(_currentHealth); if (CurrentHealth < MaxHealth) StartCoroutine(RecoveringHealth()); } }
 
     private float _maxHealth;
     public float MaxHealth { get => _maxHealth; private set { _maxHealth = value; onMaxHealthChange?.Invoke(_maxHealth); } }
@@ -62,28 +62,26 @@ public class HealthController : MonoBehaviour
 
     public void CheckCurrentHealth()
     {
-        Debug.Log("Health: " +CurrentHealth);
-        StartCoroutine(RecoveringHealth());
+        if (CurrentHealth < MaxHealth)
+        {
+            isRecoverHealth = true;
+        }
     }
 
     private IEnumerator RecoveringHealth()
     {
-        if (CurrentHealth < MaxHealth)
-        {
-            Debug.Log("can");
-            isRecoverHealth = true;
-        }
-        else if (CurrentHealth >= MaxHealth)
-        {
-            Debug.Log("ko can");
-            isRecoverHealth = false;
-        }
-        yield return new WaitForSeconds(5.0f);
+
+        CheckCurrentHealth();
+        yield return new WaitForSeconds(5);
         while (isRecoverHealth)
         {
-            Debug.Log("Bat dau");
+            yield return new WaitForSeconds(0.5f);
+
             CurrentHealth += 5;
-            CheckCurrentHealth();
+            if (CurrentHealth >= MaxHealth)
+            {
+                isRecoverHealth = false;
+            }
         }
     }
 }

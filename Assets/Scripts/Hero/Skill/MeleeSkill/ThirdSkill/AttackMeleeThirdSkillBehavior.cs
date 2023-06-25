@@ -16,12 +16,13 @@ public class AttackMeleeThirdSkillBehavior : AbstractSkillBehavior
         _skillLevel = new AttackMeleeSkillLevel(_skillSetting, levelIndex);
 
         _animator = GetComponent<Animator>();
+        manaExpend = _skillLevel.manaExpend;
         coolDownTime = _skillLevel.coolDownTime;
     }
 
     public override void OnNotify(ManaController manaController)
     {
-        if (manaController.CurrentMana < _skillLevel.manaExpend)
+        if (manaController.CurrentMana < manaExpend)
         {
             Debug.Log("khong du mana");
             return;
@@ -30,7 +31,7 @@ public class AttackMeleeThirdSkillBehavior : AbstractSkillBehavior
         StartCoroutine(StartCoolDown(coolDownTime));
 
         
-        manaController.OnManaDecrease(_skillLevel.manaExpend);
+        manaController.OnManaDecrease(manaExpend);
 
         _animator.Play("Attack_Special");
     }

@@ -24,6 +24,7 @@ public class AttackMeleeSkillBehavior : AbstractSkillBehavior
         _animator = GetComponent<Animator>();
         _bullet = ((AttackMeleeSkillSetting)skillSetting).bullet;
         coolDownTime = _skillLevel.coolDownTime;
+        manaExpend = _skillLevel.manaExpend;
     }
 
     public override void OnNotify(ManaController manaController)
@@ -33,7 +34,7 @@ public class AttackMeleeSkillBehavior : AbstractSkillBehavior
         StartCoroutine(StartCoolDown(coolDownTime));
 
         if (!manaController) return;
-        manaController.OnManaDecrease(_skillLevel.manaExpend);
+        manaController.OnManaDecrease(manaExpend);
 
         
         var colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, _skillLevel.range, LayerMask.GetMask(_targetTag.ToString()));

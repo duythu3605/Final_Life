@@ -59,7 +59,6 @@ public class ManaController : MonoBehaviour
     {
         if (CurrentMana < MaxMana)
         {
-            Debug.Log("can");
             isRecoverMana = true;
         }
     }

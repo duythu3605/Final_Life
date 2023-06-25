@@ -61,7 +61,7 @@ public class HeroController : MonoBehaviour
         InitData();
         SubscribeEvent();
 
-        _gameInputUI.SetEventHandler(AttackAction, FirstSkillAction, SecondSkillAction, ThirdSkillAction);
+        _gameInputUI.SetEventHandler(AttackAction, FirstSkillAction, SecondSkillAction, ThirdSkillAction, manaController);
     }
 
     private void InitData()
