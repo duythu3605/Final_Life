@@ -14,7 +14,7 @@ public abstract class AbstractSkillBehavior : MonoBehaviour, IObserver<ManaContr
     public float manaExpend;
 
 
-    public abstract void Init(AbstractSkillSetting skillSetting, int levelIndex);
+    public abstract void Init(AbstractSkillSetting skillSetting, int levelIndex, HeroInfoSetting damage);
 
     public abstract void OnNotify(ManaController data);
 

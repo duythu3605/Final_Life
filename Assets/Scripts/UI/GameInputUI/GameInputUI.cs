@@ -30,22 +30,19 @@ public class GameInputUI : MonoBehaviour
         _attackButton.onClick.AddListener(() => onAttack?.Invoke());
 
         _firstSkillButton.onClick.AddListener(() =>
-        {
-            if (heroCheckMana < heroActionSkillBehavior[CharacterSkills.FirstSkill].manaExpend) return;
+        {           
             onFirstSkill?.Invoke();
             StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.FirstSkill].coolDownTime, _abilityButton[0], _firstSkillButton));
         });
 
         _secondSkillButton.onClick.AddListener(() =>
-        {
-            if (heroCheckMana < heroActionSkillBehavior[CharacterSkills.SecondSkill].manaExpend) return;
+        {            
             onSecondSkill?.Invoke();
             StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.SecondSkill].coolDownTime, _abilityButton[1], _secondSkillButton));
         });
 
         _thirdSkillButton.onClick.AddListener(() =>
-        {
-            if (heroCheckMana < heroActionSkillBehavior[CharacterSkills.ThirdSkill].manaExpend) return;
+        {            
             onThirdSkill?.Invoke();
             StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.ThirdSkill].coolDownTime, _abilityButton[2], _thirdSkillButton));       
         });
