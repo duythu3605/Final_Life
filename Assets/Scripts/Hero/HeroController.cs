@@ -42,7 +42,7 @@ public class HeroController : MonoBehaviour
     public HeroSkillSystem heroSkillSystem;
 
     [HideInInspector]
-    public HeroMove heroMove;
+    public MoveMent heroMove;
     [HideInInspector]
     public void InitComponent()
     {
@@ -51,7 +51,7 @@ public class HeroController : MonoBehaviour
         manaController = GetComponent<ManaController>();
         damageController = GetComponent<DamageController>();
         speedController = GetComponent<SpeedController>();
-        heroMove = GetComponent<HeroMove>();
+        heroMove = GetComponent<MoveMent>();
         //potentialPointController = GetComponent<PotentialPointController>();
         //heroInteract = GetComponent<HeroInteractItem>();
     }

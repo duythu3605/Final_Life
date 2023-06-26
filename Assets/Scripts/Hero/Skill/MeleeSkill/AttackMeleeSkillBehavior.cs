@@ -16,7 +16,7 @@ public class AttackMeleeSkillBehavior : AbstractSkillBehavior
     [SerializeField] private Transform _fireDirection;
     [SerializeField] private CharacterTag _targetTag;
 
-    public override void Init(AbstractSkillSetting skillSetting, int levelIndex, HeroInfoSetting damageHero)
+    public override void Init(AbstractSkillSetting skillSetting, int levelIndex, float damageHero)
     {
         _skillSetting = (AttackMeleeSkillSetting)skillSetting;
         _skillLevel = new AttackMeleeSkillLevel(_skillSetting, levelIndex);

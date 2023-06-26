@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroMove : MonoBehaviour
+public class MoveMent : MonoBehaviour
 {
     private Animator _animator;
     public Rigidbody2D _rb2D;

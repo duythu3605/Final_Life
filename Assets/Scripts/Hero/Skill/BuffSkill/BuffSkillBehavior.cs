@@ -10,7 +10,7 @@ public class BuffSkillBehavior : AbstractSkillBehavior
 
     [SerializeField] private Transform _firePoint;
 
-    public override void Init(AbstractSkillSetting skillSetting, int levelIndex, HeroInfoSetting heroInfo)
+    public override void Init(AbstractSkillSetting skillSetting, int levelIndex, float heroInfo)
     {
         _skillSetting = (BuffSkillSetting)skillSetting;
         _skillLevel = new BuffSkillLevel(_skillSetting, levelIndex);
