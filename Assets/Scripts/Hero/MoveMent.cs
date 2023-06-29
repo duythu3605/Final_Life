@@ -15,14 +15,14 @@ public class MoveMent : MonoBehaviour
         _speedController = new SpeedController(speedSetting, index);
     }
 
-    public void OnMove(float horizontial, float vertical)
+    public void OnMove(Vector2 vector)
     {
         if(_rb2D.velocity.magnitude < 0.1f)
         {
             _rb2D.velocity = Vector2.zero;
         }
         _animator.Play("Run");
-        Vector2 direction = new Vector2(horizontial, vertical).normalized;
+        Vector2 direction = vector.normalized;
         transform.rotation = Quaternion.Euler(new Vector3(0, direction.x < 0 ? -180 : 0, 0));       
         _rb2D.velocity = direction * _speedController.speed * Time.fixedDeltaTime;
     }

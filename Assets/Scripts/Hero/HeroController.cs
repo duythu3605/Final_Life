@@ -92,7 +92,8 @@ public class HeroController : MonoBehaviour
     {       
         float horizontial = dynamicJoystick.Horizontal;
         float vertical = dynamicJoystick.Vertical;
+        Vector2 vectorDirection = new Vector2(horizontial, vertical);
         if (IsJoytickDragging == false) return;
-        heroMove.OnMove(horizontial,vertical);
+        heroMove.OnMove(vectorDirection);
     }
 }

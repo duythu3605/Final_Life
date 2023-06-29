@@ -15,6 +15,8 @@ MonoBehaviour:
   Name: SnakeSetting
   healthSetting: {fileID: 11400000, guid: f4de1b4ce0f027b49bf9c23f9f1491e5, type: 2}
   manaSetting: {fileID: 11400000, guid: 48118fcd419d4ca4dbecb99ccb24b193, type: 2}
-  moveLevelIndex: 0
+  speedLevelIndex: {fileID: 11400000, guid: c8f95bd061ddfb34a94b6e3ce78b46c4, type: 2}
   skillSettings:
-    _serializedList: []
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: edb52e05811261841ab9ff7a6f7bcc7d, type: 2}

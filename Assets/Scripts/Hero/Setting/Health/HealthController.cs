@@ -32,7 +32,7 @@ public class HealthController : MonoBehaviour
     private HealthController _healthController;
 
     private float _currentHealth;
-    public float CurrentHealth { get => _currentHealth; private set { _currentHealth = value; onHealthChange?.Invoke(_currentHealth); if (CurrentHealth < MaxHealth) StartCoroutine(RecoveringHealth()); } }
+    public float CurrentHealth { get => _currentHealth; private set { _currentHealth = value; onHealthChange?.Invoke(_currentHealth); if (CurrentHealth < MaxHealth && transform.gameObject.CompareTag("Hero")) StartCoroutine(RecoveringHealth()); } }
 
     private float _maxHealth;
     public float MaxHealth { get => _maxHealth; private set { _maxHealth = value; onMaxHealthChange?.Invoke(_maxHealth); } }

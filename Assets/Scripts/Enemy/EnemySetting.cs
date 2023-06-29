@@ -16,11 +16,8 @@ public class EnemySetting : AbstractEntitySetting
 
     [Header("Stats")]
     public HealthSetting healthSetting;
-    public ManaSetting manaSetting;
-
-    [Header("Move Skill")]
-    //public MoveSkillSetting moveSkillSetting;
-    public MoveLevel moveLevelIndex;
+    public ManaSetting manaSetting;   
+    public SpeedSetting speedLevelIndex;
 
     [Header("Skill"), SerializedDictionary("Skill", "Skill Setting")]
     public SerializedDictionary<CharacterSkills, AbstractSkillSetting> skillSettings;
