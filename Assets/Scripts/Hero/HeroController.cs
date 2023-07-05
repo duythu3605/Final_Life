@@ -30,6 +30,8 @@ public class HeroController : MonoBehaviour
     #endregion
 
     [HideInInspector]
+    public PotentialPointController potentialPointController;
+    [HideInInspector]
     public HealthController healthController;
 
     [HideInInspector]
@@ -40,9 +42,12 @@ public class HeroController : MonoBehaviour
     public SpeedController speedController;
     [HideInInspector]
     public HeroSkillSystem heroSkillSystem;
-
     [HideInInspector]
-    public HeroMove heroMove;
+    public Inventory _inventory;
+    [HideInInspector]
+    public EquipMentManager _equipMentManager;
+    [HideInInspector]
+    public MoveMent heroMove;
     [HideInInspector]
     public void InitComponent()
     {
@@ -51,8 +56,10 @@ public class HeroController : MonoBehaviour
         manaController = GetComponent<ManaController>();
         damageController = GetComponent<DamageController>();
         speedController = GetComponent<SpeedController>();
-        heroMove = GetComponent<HeroMove>();
-        //potentialPointController = GetComponent<PotentialPointController>();
+        heroMove = GetComponent<MoveMent>();
+        potentialPointController = GetComponent<PotentialPointController>();
+        _inventory = GetComponent<Inventory>();
+        _equipMentManager = GetComponent<EquipMentManager>();
         //heroInteract = GetComponent<HeroInteractItem>();
     }
     public void InitEvent()
@@ -61,7 +68,7 @@ public class HeroController : MonoBehaviour
         InitData();
         SubscribeEvent();
 
-        _gameInputUI.SetEventHandler(AttackAction, FirstSkillAction, SecondSkillAction, ThirdSkillAction);
+        _gameInputUI.SetEventHandler(AttackAction, FirstSkillAction, SecondSkillAction, ThirdSkillAction, manaController);
     }
 
     private void InitData()
@@ -72,7 +79,8 @@ public class HeroController : MonoBehaviour
         manaController.Init(heroInfoSetting.manaSetting, 1);
         damageController.Init(heroInfoSetting.damageSetting, 1);
         speedController.Init(heroInfoSetting.speedSetting, 1);
-        //potentialPointController.Init(heroSetting);
+        potentialPointController.Init();
+        _equipMentManager.Init(_inventory);
     }
     private void InitDataStream()
     {        
@@ -92,7 +100,8 @@ public class HeroController : MonoBehaviour
     {       
         float horizontial = dynamicJoystick.Horizontal;
         float vertical = dynamicJoystick.Vertical;
+        Vector2 vectorDirection = new Vector2(horizontial, vertical);
         if (IsJoytickDragging == false) return;
-        heroMove.OnMove(horizontial,vertical);
+        heroMove.OnMove(vectorDirection);
     }
 }

@@ -10,5 +10,6 @@ public class AttackMeleeSkillLevelSetting : AbstractSkillLevelSetting
     public float damage;
     public float critical;
     public float range;
+    public int PotentialPoint;
 }
 

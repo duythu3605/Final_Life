@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30c8cdd870592bd4a880c3c70d7b0f91, type: 3}
+  m_Name: Knight_BuffSkill
+  m_EditorClassIdentifier: 
+  Avatar: {fileID: -1101477223, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Buff Damage
+  Description: Buff damage cho player.
+  skillLevelSetting:
+    _serializedList:
+    - Key: 1
+      Value:
+        coolDownTime: 20
+        manaExpend: 50
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 4000
+    - Key: 2
+      Value:
+        coolDownTime: 19
+        manaExpend: 55
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 9000
+    - Key: 3
+      Value:
+        coolDownTime: 18
+        manaExpend: 60
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 15000
+    - Key: 4
+      Value:
+        coolDownTime: 17
+        manaExpend: 65
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 34000
+    - Key: 5
+      Value:
+        coolDownTime: 16
+        manaExpend: 70
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 58000
+    - Key: 6
+      Value:
+        coolDownTime: 15
+        manaExpend: 75
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 75000
+    - Key: 7
+      Value:
+        coolDownTime: 14
+        manaExpend: 80
+        damageUseFul: 0
+        healthUseFul: 0
+        speedUseFul: 0
+        timeUseFul: 0
+        range: 0
+        PotentialPoint: 90000

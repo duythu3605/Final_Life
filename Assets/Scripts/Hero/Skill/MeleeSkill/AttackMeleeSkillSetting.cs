@@ -9,7 +9,7 @@ public class AttackMeleeSkillSetting : AbstractSkillSetting
 {
     [SerializedDictionary("Level Index", "Value")]
     public SerializedDictionary<int, AttackMeleeSkillLevelSetting> skillLevelSetting;
-
+    public GameObject bullet;
     public override int Id => (nameof(AttackMeleeSkillSetting) + Name).GetHashCode();
 }
 

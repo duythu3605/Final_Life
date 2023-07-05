@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,10 +32,12 @@ public class ManaController : MonoBehaviour
     private ManaController _manaController;
 
     private float _currentMana;
-    public float CurrentMana { get => _currentMana; private set { _currentMana = value; onManaChange?.Invoke(_currentMana); } }
+    public float CurrentMana { get => _currentMana; private set { _currentMana = value; onManaChange?.Invoke(_currentMana); if(CurrentMana < MaxMana) StartCoroutine(RecoveringMana()); } }
 
     private float _maxMana;
     public float MaxMana { get => _maxMana; private set { _maxMana = value; onMaxManaChange?.Invoke(_maxMana); } }
+
+    private bool isRecoverMana = false;
 
     public void Init(ManaSetting manaSetting, int levelIndex)
     {
@@ -50,5 +53,29 @@ public class ManaController : MonoBehaviour
     public void LevelUp()
     {
         _manaController = _manaController.manaNextLevel;
+    }
+
+    public void CheckCurrentMana()
+    {
+        if (CurrentMana < MaxMana)
+        {
+            isRecoverMana = true;
+        }
+    }
+
+    private IEnumerator RecoveringMana()
+    {
+        CheckCurrentMana();
+        yield return new WaitForSeconds(5);
+        while (isRecoverMana)
+        {
+            yield return new WaitForSeconds(0.5f);
+            
+            CurrentMana += 5;
+            if(CurrentMana >= MaxMana)
+            {
+                isRecoverMana = false;
+            }
+        }
     }
 }

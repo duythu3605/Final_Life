@@ -17,7 +17,8 @@ public class HeroSkillSystem : MonoBehaviour
 
 
         heroController.AttackEvent.AddObserver(skillBehaviors[CharacterSkills.Attack]);
-        //heroController.FirstSkillEvent.AddObserver(skillBehaviors[CharacterSkills.FirstSkill]);
+        heroController.FirstSkillEvent.AddObserver(skillBehaviors[CharacterSkills.FirstSkill]);
+        heroController.SecondSkillEvent.AddObserver(skillBehaviors[CharacterSkills.SecondSkill]);
         heroController.ThirdSkillEvent.AddObserver(skillBehaviors[CharacterSkills.ThirdSkill]);
 
     }
@@ -26,7 +27,7 @@ public class HeroSkillSystem : MonoBehaviour
     {
         foreach (CharacterSkills heroAction in skillBehaviors.Keys)
         {
-            skillBehaviors[heroAction].Init(heroSetting.skillSettings[heroAction], 1);
+            skillBehaviors[heroAction].Init(heroSetting.skillSettings[heroAction], 1 , 0);
         }
     }
 }

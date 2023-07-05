@@ -11,6 +11,8 @@ public class GameInputUI : MonoBehaviour
 
     [Header("Ability")]
     [SerializeField] private Image[] _abilityButton;
+    private float heroCheckMana;
+
     public void Init()
     {
         for (int i = 0; i < _abilityButton.Length; i++)
@@ -19,29 +21,30 @@ public class GameInputUI : MonoBehaviour
         }
     }
 
-    public void SetEventHandler(Action onAttack, Action onFirstSkill, Action onSecondSkill, Action onThirdSkill)
+
+    public void SetEventHandler(Action onAttack, Action onFirstSkill, Action onSecondSkill, Action onThirdSkill , ManaController manaController)
     {
         var heroActionSkillBehavior = GameManager.Instance.heroController.heroSkillSystem.skillBehaviors;
+
 
         _attackButton.onClick.AddListener(() => onAttack?.Invoke());
 
         _firstSkillButton.onClick.AddListener(() =>
-        {
+        {           
             onFirstSkill?.Invoke();
-            //StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.FirstSkill].coolDownTime, _abilityButton[0], _firstSkillButton));
+            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.FirstSkill].coolDownTime, _abilityButton[0], _firstSkillButton));
         });
 
         _secondSkillButton.onClick.AddListener(() =>
-        {
+        {            
             onSecondSkill?.Invoke();
-            //StartCoroutine(StartAbility(skillBehaviors[CharacterSkills.SecondSkill].coolDownTime, _abilityButton[1]));
+            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.SecondSkill].coolDownTime, _abilityButton[1], _secondSkillButton));
         });
 
         _thirdSkillButton.onClick.AddListener(() =>
-        {
-        onThirdSkill?.Invoke();
-        StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.ThirdSkill].coolDownTime, _abilityButton[2], _thirdSkillButton));
-        
+        {            
+            onThirdSkill?.Invoke();
+            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.ThirdSkill].coolDownTime, _abilityButton[2], _thirdSkillButton));       
         });
     }
 
