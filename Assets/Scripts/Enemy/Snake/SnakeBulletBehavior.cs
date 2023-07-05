@@ -14,9 +14,11 @@ public class SnakeBulletBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TakeDamage(collision, _damage);
-
-        Destroy(gameObject);
+        if(collision.CompareTag("Hero")) {
+            TakeDamage(collision, _damage);
+            Destroy(gameObject);
+        }
+        
     }
 
     protected void TakeDamage(Collider2D collision, float damage)

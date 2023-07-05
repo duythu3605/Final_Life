@@ -18,7 +18,7 @@ public class GameManager : GameSingleton<GameManager>
     public GamePlayingUI GamePlayingUI;
 
     [HideInInspector]
-    public ListIconUI _ListIconUI;
+    public UIManager _uiManager;
 
     #endregion
     protected override void OnAwake()
@@ -34,8 +34,8 @@ public class GameManager : GameSingleton<GameManager>
         GamePlayingUI = GameObject.Find(nameof(GamePlayingUI)).GetComponent<GamePlayingUI>();
         GamePlayingUI.Init(heroController.healthController, heroController.manaController);
 
-        _ListIconUI = GameObject.Find(nameof(ListIconUI)).GetComponent<ListIconUI>();
-        _ListIconUI.Init();
+        _uiManager = GameObject.Find(nameof(UIManager)).GetComponent<UIManager>();
+        _uiManager.Init(heroController);
 
         heroController.InitEvent();
     }

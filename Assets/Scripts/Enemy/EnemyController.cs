@@ -10,7 +10,8 @@ public class EnemyController : MonoBehaviour
 
     [SerializeField]
     private Transform _target;
-   
+
+    private Vector2 _direction => (_target == null) ? Vector2.zero : (_target.transform.position - transform.position).normalized;
     #region UI
     [SerializeField]
     private SliderBar _healthBar;
@@ -28,19 +29,18 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public MoveMent enemyMove;
     #endregion
-
-    private EnemyPatron enemyPatron;
-    private bool isFindedHero = false;
+    
     public EnemySetting enemySetting;
-
+    public int Points;
+    public bool isStep = false;
+    public float radius = 5;
+    public float _argoRange = 2;
+    private GameManager _gameManager;
     public EnemyState CurrentState { get; set; }
 
     private void Update()
-    {
-        if (!isFindedHero)
-        {
-            
-        }
+    {        
+        State(CurrentState);
     }
 
     private void State(EnemyState enemyState)
@@ -48,17 +48,22 @@ public class EnemyController : MonoBehaviour
         switch (enemyState)
         {
             case EnemyState.Patron:
-                enemyMove.OnMove(enemyPatron.Patron());
-                if (!isFindedHero)
-                {
+                _target = null;
+                enemyMove.OnMove(_direction);
+                if (FindAround())
+                {                        
+                    CurrentState = EnemyState.Chasing;
+                }
+                else
+                {                   
                     CurrentState = EnemyState.Patron;
                 }
                 break;
             case EnemyState.Chasing:
-
+                Chasing(_target);
                 break;
             case EnemyState.Attack:
-                AttackEvent.NotifyObservers(manaController);
+                Attack();
                 break;
             case EnemyState.Dead:
                 OnDead();
@@ -66,20 +71,60 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-
-    private void DetectToAttack()
+    public bool FindAround()
     {
-        Collider2D collider = Physics2D.Raycast(transform.position, transform.right, 1.0f, LayerMask.GetMask("Hero")).collider;
-        CurrentState = collider ? EnemyState.Attack : EnemyState.Chasing;
-        
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, radius);
+        if (collider != null && collider.gameObject.CompareTag("Hero"))
+        {
+            _target = collider.transform;
+            return true;
+        }
+        return false;
     }
+
+    private void Attack()
+    {
+        if (FindAround())
+        {
+            AttackEvent.NotifyObservers(manaController);
+            CurrentState = EnemyState.Attack;
+        }
+        else
+        {
+            CurrentState = EnemyState.Chasing;
+        }
+    }
+
+    private void Chasing(Transform target)
+    {
+        float distance =  Vector2.Distance(target.position, transform.position);
+        
+        enemyMove.OnMove(_direction);
+        if(distance < _argoRange)
+        {
+            CurrentState = EnemyState.Attack;
+        }
+        else
+        {
+            if (FindAround())
+            {
+                CurrentState = EnemyState.Chasing;
+            }
+            else
+            {
+                CurrentState = EnemyState.Patron;
+            }
+        }
+    }
+
+
 
     private void Start()
     {
         InitComponent();
         InitDataStream();
         IniEvent();
-        InitData();       
+        InitData();        
     }
     private void InitComponent()
     {
@@ -87,8 +132,7 @@ public class EnemyController : MonoBehaviour
         healthController = GetComponent<HealthController>();
         manaController = GetComponent<ManaController>();
         speedController = GetComponent<SpeedController>();
-        enemyMove = GetComponent<MoveMent>();
-        enemyPatron = GetComponent<EnemyPatron>();
+        enemyMove = GetComponent<MoveMent>();        
     }
 
     private void InitData()
@@ -120,6 +164,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnDead()
     {
+        GameManager.Instance.heroController.potentialPointController.OnPPIncrease(Points);
         GetComponent<Animator>().Play("Dead");       
         Destroy(gameObject, 2);
     }

@@ -31,52 +31,25 @@ public class SnakeAttackSkillBehavior : AbstractSkillBehavior
 
         manaController?.OnManaDecrease(_skillLevel.manaExpend);
 
-        var colliders = Physics2D.OverlapCircleAll((Vector2)transform.position, _skillLevel.range, LayerMask.GetMask(_targetTag.ToString()));
-
-        if (colliders != null)
-        {
-            Collider2D nearestCollider = GetNearestCollider(colliders);
-
-            Aim(nearestCollider);
-            Attack();
-        }
+        Attack();
     }
 
     private void Attack()
     {
         _animator.Play("Attack");
 
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, _skillLevel.range);
+        Vector2 direction = -_firePoint.right;
+        if (collider.CompareTag("Hero"))
+        {
+            direction = collider.transform.position - _firePoint.position;
+        }
+
         SnakeBulletBehavior buttletClone = Instantiate(_bullet, _firePoint.position, Quaternion.identity).GetComponent<SnakeBulletBehavior>();
 
         buttletClone.Init(_skillLevel.damage);
-
-        buttletClone.GetComponent<Rigidbody2D>().AddForce(-_firePoint.right * FORCE, ForceMode2D.Impulse);
+        buttletClone.GetComponent<Rigidbody2D>().AddForce(direction.normalized * FORCE, ForceMode2D.Impulse);
     }
 
-    private void Aim(Collider2D target)
-    {
-        if (target == null) return;
 
-        Vector2 direction = target.transform.position - transform.position;
-
-        transform.rotation = Quaternion.Euler(new Vector3(0, direction.x < 0 ? 180 : 0, 0));
-
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        _fireDirection.eulerAngles = new Vector3(0, 0, angle);
-    }
-
-    private Collider2D GetNearestCollider(Collider2D[] enemiesCollider)
-    {
-        float minDistance = float.MaxValue;
-        Collider2D nearestEnemyCollider = null;
-
-        foreach (Collider2D enemyCollider in enemiesCollider)
-        {
-            if (Vector2.Distance(enemyCollider.transform.position, transform.position) < minDistance)
-                nearestEnemyCollider = enemyCollider;
-        }
-
-        return nearestEnemyCollider;
-    }
 }

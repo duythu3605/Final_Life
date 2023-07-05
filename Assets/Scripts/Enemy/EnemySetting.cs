@@ -18,6 +18,7 @@ public class EnemySetting : AbstractEntitySetting
     public HealthSetting healthSetting;
     public ManaSetting manaSetting;   
     public SpeedSetting speedLevelIndex;
+    public int Point;
 
     [Header("Skill"), SerializedDictionary("Skill", "Skill Setting")]
     public SerializedDictionary<CharacterSkills, AbstractSkillSetting> skillSettings;

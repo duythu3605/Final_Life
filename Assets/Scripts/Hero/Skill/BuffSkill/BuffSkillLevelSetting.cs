@@ -11,4 +11,5 @@ public class BuffSkillLevelSetting : AbstractSkillLevelSetting
     public float speedUseFul;
     public float timeUseFul;
     public float range;
+    public int PotentialPoint;
 }

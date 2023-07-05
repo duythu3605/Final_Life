@@ -27,7 +27,7 @@ public class HeroSkillSystem : MonoBehaviour
     {
         foreach (CharacterSkills heroAction in skillBehaviors.Keys)
         {
-            skillBehaviors[heroAction].Init(heroSetting.skillSettings[heroAction], 1 , 100);
+            skillBehaviors[heroAction].Init(heroSetting.skillSettings[heroAction], 1 , 0);
         }
     }
 }

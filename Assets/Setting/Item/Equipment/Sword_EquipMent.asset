@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcc9aee108b135f4c9174ceaacbd7818, type: 3}
+  m_Name: Sword_EquipMent
+  m_EditorClassIdentifier: 
+  NameItem: Sword
+  isDefautItem: 0
+  itemLevelSetting:
+    _serializedList:
+    - Key: 1
+      Value:
+        DamageExpand: 75
+        Critical: 0
+        ArmorExpand: 0
+        ManaExpand: 0
+        HpExpand: 0
+        Icon: {fileID: -1503144128, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+        Description: Wooden Sword
+    - Key: 2
+      Value:
+        DamageExpand: 245
+        Critical: 0
+        ArmorExpand: 0
+        ManaExpand: 0
+        HpExpand: 0
+        Icon: {fileID: 804437066, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+        Description: Iron Sword
+    - Key: 3
+      Value:
+        DamageExpand: 735
+        Critical: 0
+        ArmorExpand: 0
+        ManaExpand: 0
+        HpExpand: 0
+        Icon: {fileID: -1934959610, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+        Description: Titan Sword
+  equipSlot: 2

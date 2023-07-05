@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b95c9ef3de8208a49acdc862740230e7, type: 3}
+  m_Name: Second_AttackMelee
+  m_EditorClassIdentifier: 
+  Avatar: {fileID: -501785192, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Slash Fire.
+  Description: When slash blade create a fire attack target.
+  skillLevelSetting:
+    _serializedList:
+    - Key: 1
+      Value:
+        coolDownTime: 10
+        manaExpend: 50
+        damage: 100
+        critical: 0
+        range: 0
+        PotentialPoint: 1800
+    - Key: 2
+      Value:
+        coolDownTime: 9
+        manaExpend: 45
+        damage: 200
+        critical: 0
+        range: 0
+        PotentialPoint: 3000
+    - Key: 3
+      Value:
+        coolDownTime: 8
+        manaExpend: 40
+        damage: 300
+        critical: 0
+        range: 0
+        PotentialPoint: 7000
+    - Key: 4
+      Value:
+        coolDownTime: 7
+        manaExpend: 35
+        damage: 400
+        critical: 0
+        range: 0
+        PotentialPoint: 12000
+    - Key: 5
+      Value:
+        coolDownTime: 6
+        manaExpend: 30
+        damage: 500
+        critical: 0
+        range: 0
+        PotentialPoint: 18000
+    - Key: 6
+      Value:
+        coolDownTime: 5
+        manaExpend: 25
+        damage: 600
+        critical: 0
+        range: 0
+        PotentialPoint: 25000
+    - Key: 7
+      Value:
+        coolDownTime: 4
+        manaExpend: 20
+        damage: 700
+        critical: 0
+        range: 0
+        PotentialPoint: 50000
+  bullet: {fileID: 7572918471362883376, guid: b0f09589f8615ba4f8c2cbdee92499e3, type: 3}
