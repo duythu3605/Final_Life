@@ -53,7 +53,7 @@ public class AttackMeleeThirdSkillBehavior : AbstractSkillBehavior
         }
 
         ThirdSkillKnightBulletBehavior buttletClone = Instantiate(_bullet, _firePoint.position, Quaternion.identity).GetComponent<ThirdSkillKnightBulletBehavior>();
-        
+        buttletClone.transform.rotation = transform.rotation;
         buttletClone.Init(_skillLevel.damage + _damageHero);
         buttletClone.GetComponent<Rigidbody2D>().AddForce(direction.normalized * FORCE, ForceMode2D.Impulse);
     }

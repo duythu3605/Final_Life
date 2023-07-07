@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     #region HealthInfor    
-    private HealthSetting _healthSetting;
+    public HealthSetting _healthSetting;
 
     private HealthLevelSetting _levelSetting => _healthSetting.levelSettings[LevelIndex];
 
@@ -39,9 +39,9 @@ public class HealthController : MonoBehaviour
 
     private bool isRecoverHealth = false;
 
-    public void Init(HealthSetting manaSetting, int levelIndex)
+    public void Init(HealthSetting healthSetting, int levelIndex)
     {
-        _healthController = new HealthController(manaSetting, levelIndex);
+        _healthController = new HealthController(healthSetting, levelIndex);
 
         CurrentHealth = MaxHealth = _healthController.health;
         _animator = GetComponent<Animator>();
@@ -58,6 +58,7 @@ public class HealthController : MonoBehaviour
     public void LevelUp()
     {
         _healthController = _healthController.healthNextLevel;
+        CurrentHealth = MaxHealth = _healthController.health;
     }
 
     public void CheckCurrentHealth()

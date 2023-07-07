@@ -187,6 +187,7 @@ MonoBehaviour:
   _nameSkill: {fileID: 6893376803073205402}
   _levelSkill: {fileID: 2822004873925415511}
   _upSkill: {fileID: 4087623871955474279}
+  _showInfor: {fileID: 2309521875336015577}
 --- !u!1 &1842561160941140539
 GameObject:
   m_ObjectHideFlags: 0

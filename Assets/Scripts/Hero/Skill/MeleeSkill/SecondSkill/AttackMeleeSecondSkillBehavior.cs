@@ -54,7 +54,7 @@ public class AttackMeleeSecondSkillBehavior : AbstractSkillBehavior
         _animator.Play("Attack");
 
         SecondSkillBulletKnight buttletClone = Instantiate(_bullet, _firePoint.position, Quaternion.identity).GetComponent<SecondSkillBulletKnight>();
-
+        buttletClone.transform.rotation = transform.rotation;
         buttletClone.Init(_skillLevel.damage);
 
     }

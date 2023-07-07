@@ -6,4 +6,5 @@ public abstract class AbstractSkillLevelSetting
 {
     public float coolDownTime;
     public float manaExpend;
+
 }

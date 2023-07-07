@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c160b26283c144691c1f14be4ec97c, type: 3}
   m_Name: Knight_speedSetting
   m_EditorClassIdentifier: 
+  iconSpeed: {fileID: 1564578021, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Speed
+  introSpeed: Speed for player.
   levelSettings:
     _serializedList:
     - Key: 1

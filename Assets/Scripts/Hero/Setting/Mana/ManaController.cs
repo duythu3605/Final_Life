@@ -53,6 +53,7 @@ public class ManaController : MonoBehaviour
     public void LevelUp()
     {
         _manaController = _manaController.manaNextLevel;
+        CurrentMana = MaxMana = _manaController.mana;
     }
 
     public void CheckCurrentMana()

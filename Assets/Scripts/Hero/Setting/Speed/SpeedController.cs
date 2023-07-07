@@ -51,5 +51,6 @@ public class SpeedController : MonoBehaviour
     public void LevelUp()
     {
         _speedController = _speedController.speedNextLevel;
+        CurrentSpeed = MaxSpeed = _speedController.speed;
     }
 }

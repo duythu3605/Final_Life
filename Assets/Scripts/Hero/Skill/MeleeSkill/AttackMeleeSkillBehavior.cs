@@ -51,7 +51,7 @@ public class AttackMeleeSkillBehavior : AbstractSkillBehavior
         _animator.Play("Attack");
 
         BulletBehavior buttletClone = Instantiate(_bullet, _firePoint.position, Quaternion.identity).GetComponent<BulletBehavior>();
-        
+        buttletClone.transform.rotation = transform.rotation;
         buttletClone.Init(_skillLevel.damage);
         
     }

@@ -15,6 +15,8 @@ MonoBehaviour:
   Avatar: {fileID: -981518817, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
   Name: Storm Sword.
   Description: Skill create storm sword!
+  PotentialPoint: 5000
+  Level: 7
   skillLevelSetting:
     _serializedList:
     - Key: 1
@@ -24,7 +26,6 @@ MonoBehaviour:
         damage: 150
         critical: 0
         range: 2.5
-        PotentialPoint: 2000
     - Key: 2
       Value:
         coolDownTime: 15.5
@@ -32,7 +33,6 @@ MonoBehaviour:
         damage: 230
         critical: 0
         range: 2.5
-        PotentialPoint: 5000
     - Key: 3
       Value:
         coolDownTime: 15
@@ -40,7 +40,6 @@ MonoBehaviour:
         damage: 310
         critical: 0
         range: 2.5
-        PotentialPoint: 10000
     - Key: 4
       Value:
         coolDownTime: 14.5
@@ -48,7 +47,6 @@ MonoBehaviour:
         damage: 390
         critical: 0
         range: 2.5
-        PotentialPoint: 18000
     - Key: 5
       Value:
         coolDownTime: 14
@@ -56,7 +54,6 @@ MonoBehaviour:
         damage: 470
         critical: 0
         range: 2.5
-        PotentialPoint: 30000
     - Key: 6
       Value:
         coolDownTime: 13.5
@@ -64,7 +61,6 @@ MonoBehaviour:
         damage: 550
         critical: 0
         range: 0
-        PotentialPoint: 50000
     - Key: 7
       Value:
         coolDownTime: 13
@@ -72,5 +68,4 @@ MonoBehaviour:
         damage: 630
         critical: 0
         range: 2.5
-        PotentialPoint: 80000
   bullet: {fileID: 4098786724978237469, guid: 6eeb918ebb3a94c469575d40e735db0c, type: 3}

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3109b44824a692347ae3afb13569e33a, type: 3}
   m_Name: Knight_manaSetting
   m_EditorClassIdentifier: 
+  iconMana: {fileID: 1217440755, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Mana
+  introMana: Mana for player.
   levelSettings:
     _serializedList:
     - Key: 1

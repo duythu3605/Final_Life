@@ -141,7 +141,7 @@ public class EnemyController : MonoBehaviour
         healthController.Init(enemySetting.healthSetting, 1);
         manaController.Init(enemySetting.manaSetting, 1);
         speedController.Init(enemySetting.speedLevelIndex, 1);
-        enemyMove.Init(enemySetting.speedLevelIndex, 1);
+        enemyMove.Init(this);
         CurrentState = EnemyState.Patron;
     }
 
@@ -166,6 +166,6 @@ public class EnemyController : MonoBehaviour
     {
         GameManager.Instance.heroController.potentialPointController.OnPPIncrease(Points);
         GetComponent<Animator>().Play("Dead");       
-        Destroy(gameObject, 2);
+        Destroy(gameObject, 3);
     }
 }
