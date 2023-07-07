@@ -6,10 +6,18 @@ using UnityEngine.UI;
 public class ItemCard : MonoBehaviour
 {
     private ItemSetting item;
+    private int _levelItem;
     [SerializeField]
     private Image IconItem;
 
     public Button removeButton;
+
+    private UIPaperItem _uiPaperItem;
+
+    private void Start()
+    {
+        _uiPaperItem = FindAnyObjectByType<UIPaperItem>();
+    }
 
     public void AddItem(ItemSetting newItem, int levelItem)
     {
@@ -17,6 +25,7 @@ public class ItemCard : MonoBehaviour
         IconItem.sprite = item.itemLevelSetting[levelItem].Icon;
         IconItem.enabled = true;
         removeButton.interactable = true;
+        _levelItem = levelItem;
     }
     public void ChearSlot()
     {
@@ -39,4 +48,13 @@ public class ItemCard : MonoBehaviour
             item.Use();
         }
     }
+
+    public void ShowInforItem()
+    {
+        if(item != null)
+        {
+            _uiPaperItem.onupdateUI.Invoke(item,_levelItem);
+        }
+    }
+    
 }

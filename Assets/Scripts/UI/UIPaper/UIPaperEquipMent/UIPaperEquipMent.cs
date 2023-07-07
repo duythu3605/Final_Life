@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIPaperEquipMent : MonoBehaviour
 {
@@ -19,16 +20,46 @@ public class UIPaperEquipMent : MonoBehaviour
 
     public Transform EquipParent;
 
-    public void Init(Inventory inventory , EquipMentManager equipMentManager)
-    {
-        _inventory = inventory;
-        _equipMent = equipMentManager;
+    [Header("Top")]
+    public SliderBar _healthBar;
+    public SliderBar _manaBar;
+    [SerializeField]
+    private Image _avatar;
+    [SerializeField]
+    public TMP_Text  _pontentialPoint;
 
-        inventory.onItemChangedCallBack += UpdateUIInventory;
+    public void Init(HeroController heroController)
+    {
+        _inventory = heroController._inventory;
+        _equipMent = heroController._equipMentManager;
+
+        _inventory.onItemChangedCallBack += UpdateUIInventory;
 
         _equipMent.onItemEquip += UpdateEquipSlots;
         slots = ItemsParent.GetComponentsInChildren<ItemCard>();
         slotsEquip = EquipParent.GetComponentsInChildren<ItemEquipMent>();
+
+        if (heroController.healthController)
+        {
+            heroController.healthController.onMaxHealthChange += _healthBar.SetMaxValue;
+            heroController.healthController.onHealthChange += _healthBar.SetValue;
+        }
+
+        if (heroController.manaController)
+        {
+            heroController.manaController.onMaxManaChange += _manaBar.SetMaxValue;
+            heroController.manaController.onManaChange += _manaBar.SetValue;
+        }
+
+        SetValuePP(heroController.potentialPointController.CurrentPPoint);
+        heroController.potentialPointController.OnPPointChance += SetValuePP;
+        
+        _avatar.sprite = heroController.heroInfoSetting.Avatar;
+    }
+
+    private void SetValuePP(int value)
+    {
+        _pontentialPoint.text = value.ToString();
     }
 
     private void UpdateUIInventory()

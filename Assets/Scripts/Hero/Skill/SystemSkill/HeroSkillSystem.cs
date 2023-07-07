@@ -12,7 +12,6 @@ public class HeroSkillSystem : MonoBehaviour
 
     public void Init(HeroController heroController)
     {
-
         InitSkillsBehaviour(heroController.heroInfoSetting);
 
 
@@ -29,5 +28,18 @@ public class HeroSkillSystem : MonoBehaviour
         {
             skillBehaviors[heroAction].Init(heroSetting.skillSettings[heroAction], 1 , 0);
         }
+    }
+    private void InitedSkillsBehaviour(HeroInfoSetting heroSetting)
+    {
+        foreach (CharacterSkills heroAction in skillBehaviors.Keys)
+        {
+            skillBehaviors[heroAction].Init(heroSetting.skillSettings[heroAction], PlayerPrefs.GetInt(heroAction.ToString()), 0);
+        }
+    }
+
+    public void UpSkill(HeroInfoSetting heroSetting, CharacterSkills characterSkills, int level)
+    {
+            skillBehaviors[characterSkills].Init(heroSetting.skillSettings[characterSkills], level, 0);
+            PlayerPrefs.SetInt(characterSkills.ToString(), level);
     }
 }

@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aba6789a66aa0f4fa46eb370c4e4b5d, type: 3}
   m_Name: Knight_damageSetting
   m_EditorClassIdentifier: 
+  iconDamage: {fileID: 531200190, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Damage
+  introDamage: Damage for player.
   levelSettings:
     _serializedList:
     - Key: 1

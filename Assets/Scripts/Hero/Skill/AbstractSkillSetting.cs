@@ -10,4 +10,6 @@ public abstract class AbstractSkillSetting : ScriptableObject
     public Sprite Avatar;
     public string Name;
     public string Description;
+    public int PotentialPoint;
+    public int Level;
 }

@@ -17,7 +17,6 @@ public class ThirdSkillKnightBulletBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         objCount++;
-        Debug.Log(objCount);
         TakeDamage(collision, _damage);
        if(objCount >= 5)
         {

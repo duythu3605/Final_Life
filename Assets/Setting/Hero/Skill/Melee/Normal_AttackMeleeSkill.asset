@@ -15,6 +15,8 @@ MonoBehaviour:
   Avatar: {fileID: 1628289180, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
   Name: Normal Attack
   Description: Attack target near player.
+  PotentialPoint: 2000
+  Level: 7
   skillLevelSetting:
     _serializedList:
     - Key: 1
@@ -24,7 +26,6 @@ MonoBehaviour:
         damage: 12
         critical: 0
         range: 0
-        PotentialPoint: 1500
     - Key: 2
       Value:
         coolDownTime: 0.35
@@ -32,7 +33,6 @@ MonoBehaviour:
         damage: 40
         critical: 0
         range: 0
-        PotentialPoint: 4500
     - Key: 3
       Value:
         coolDownTime: 0.35
@@ -40,7 +40,6 @@ MonoBehaviour:
         damage: 95
         critical: 0
         range: 0
-        PotentialPoint: 10000
     - Key: 4
       Value:
         coolDownTime: 0.35
@@ -48,7 +47,6 @@ MonoBehaviour:
         damage: 130
         critical: 0
         range: 0
-        PotentialPoint: 17000
     - Key: 5
       Value:
         coolDownTime: 0.35
@@ -56,7 +54,6 @@ MonoBehaviour:
         damage: 174
         critical: 0
         range: 0
-        PotentialPoint: 31000
     - Key: 6
       Value:
         coolDownTime: 0.35
@@ -64,7 +61,6 @@ MonoBehaviour:
         damage: 210
         critical: 0
         range: 0
-        PotentialPoint: 50000
     - Key: 7
       Value:
         coolDownTime: 0.35
@@ -72,5 +68,4 @@ MonoBehaviour:
         damage: 290
         critical: 0
         range: 0
-        PotentialPoint: 65000
   bullet: {fileID: 3118869057611330974, guid: 52076859d4d03ea4ea404af069f5d430, type: 3}

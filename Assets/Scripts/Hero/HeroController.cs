@@ -74,7 +74,7 @@ public class HeroController : MonoBehaviour
     private void InitData()
     {
         heroSkillSystem.Init(this);
-        heroMove.Init(heroInfoSetting.speedSetting,1);
+        heroMove.Init(this);
         healthController.Init(heroInfoSetting.healthSetting, 1);
         manaController.Init(heroInfoSetting.manaSetting, 1);
         damageController.Init(heroInfoSetting.damageSetting, 1);

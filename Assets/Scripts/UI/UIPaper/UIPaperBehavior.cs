@@ -25,8 +25,8 @@ public class UIPaperBehavior : MonoBehaviour
         _panelUITask.SetActive(false);
         _equipmentButton.onClick.AddListener(TurnOnUIEquipMent);
         _itemButton.onClick.AddListener(TurnOnUIItem);
-        _taskButton.onClick.AddListener(TurnOnUISkill);
-        _skillButton.onClick.AddListener(TurnOnUITask);
+        _taskButton.onClick.AddListener(TurnOnUITask);
+        _skillButton.onClick.AddListener(TurnOnUISkill);
         _exitButton.onClick.AddListener(TurnOffUIPaper);
     }
 

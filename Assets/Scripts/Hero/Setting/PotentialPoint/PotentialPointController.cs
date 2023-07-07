@@ -15,24 +15,23 @@ public class PotentialPointController : MonoBehaviour
     {
         if (GetValuePP() == 0)
         {
-            _pPoints = 0;
+            CurrentPPoint = _pPoints = 0;
         }
         else
         {
-            _pPoints = GetValuePP(); 
+            CurrentPPoint = _pPoints = GetValuePP(); 
         }
     }
     public void OnPPIncrease(int value)
     {
-        _pPoints += value;
-        SetValuePlayer(_pPoints);
-        Debug.Log(_pPoints);
+        CurrentPPoint += value;
+        SetValuePlayer(CurrentPPoint);
     }
 
     public void OnPPDecrease(int value)
     {
-        _pPoints -= value;
-        SetValuePlayer(_pPoints);
+        CurrentPPoint -= value;
+        SetValuePlayer(CurrentPPoint);
     }
 
     private void SetValuePlayer(int value)

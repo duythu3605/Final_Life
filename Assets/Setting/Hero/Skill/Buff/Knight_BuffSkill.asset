@@ -15,6 +15,8 @@ MonoBehaviour:
   Avatar: {fileID: -1101477223, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
   Name: Buff Damage
   Description: Buff damage cho player.
+  PotentialPoint: 4000
+  Level: 7
   skillLevelSetting:
     _serializedList:
     - Key: 1
@@ -26,7 +28,6 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 4000
     - Key: 2
       Value:
         coolDownTime: 19
@@ -36,7 +37,6 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 9000
     - Key: 3
       Value:
         coolDownTime: 18
@@ -46,7 +46,6 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 15000
     - Key: 4
       Value:
         coolDownTime: 17
@@ -56,7 +55,6 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 34000
     - Key: 5
       Value:
         coolDownTime: 16
@@ -66,7 +64,6 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 58000
     - Key: 6
       Value:
         coolDownTime: 15
@@ -76,7 +73,6 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 75000
     - Key: 7
       Value:
         coolDownTime: 14
@@ -86,4 +82,3 @@ MonoBehaviour:
         speedUseFul: 0
         timeUseFul: 0
         range: 0
-        PotentialPoint: 90000

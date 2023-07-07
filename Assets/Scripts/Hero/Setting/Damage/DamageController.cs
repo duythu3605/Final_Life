@@ -51,5 +51,6 @@ public class DamageController : MonoBehaviour
     public void LevelUp()
     {
         _damageController = _damageController.damageNextLevel;
+        CurrentDamage = MaxDamage = _damageController.damage;
     }
 }

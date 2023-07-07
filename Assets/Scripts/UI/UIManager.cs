@@ -16,12 +16,14 @@ public class UIManager : MonoBehaviour
     public UIPaperBehavior UIPaper;
     public UIPaperEquipMent _uIPaperEquipMent;   
     public UIPaperSkill _uIPaperSkill;
+    public UIPaperItem _uIPaperItem;
 
     public void Init(HeroController heroController)
     {
         UIPaper.Init();
-        _uIPaperEquipMent.Init(heroController._inventory, heroController._equipMentManager);        
-        _uIPaperSkill.Init(heroController.heroInfoSetting);
+        _uIPaperEquipMent.Init(heroController);        
+        _uIPaperSkill.Init(heroController);
+        _uIPaperItem.Init(heroController);
 
         _panelUIPaper.SetActive(false);
         _uiPaper.onClick.AddListener(UIPaperShow);

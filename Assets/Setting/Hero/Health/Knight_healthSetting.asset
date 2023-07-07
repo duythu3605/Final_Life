@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2e720585d257e4a8ab5bf5573ee7d9, type: 3}
   m_Name: Knight_healthSetting
   m_EditorClassIdentifier: 
+  iconHealth: {fileID: -1524824604, guid: f7b16650a407ff24ba5b71b1c9cd4bc0, type: 3}
+  Name: Health
+  introHealth: Health for player.
   levelSettings:
     _serializedList:
     - Key: 1

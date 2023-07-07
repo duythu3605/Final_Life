@@ -18,19 +18,61 @@ public class UIPaperSkill : MonoBehaviour
     public SkillCard _itemSkillCard;
 
 
-    public void Init(HeroInfoSetting heroInfoSetting)
+    public void Init(HeroController heroController)
     {
-        for (int i = 0; i < heroInfoSetting.skillSettings.Count; i++)
+        var health = Instantiate(_itemSkillCard, _skillParent);
+        var mana = Instantiate(_itemSkillCard, _skillParent);
+        var damage = Instantiate(_itemSkillCard, _skillParent);
+        var speed = Instantiate(_itemSkillCard, _skillParent);
+        
+        //Skill
+        for (int i = 0; i < heroController.heroInfoSetting.skillSettings.Count; i++)
         {
             CharacterSkills characterSkills = (CharacterSkills)i;
             var skillCard = Instantiate(_itemSkillCard, _skillParent);
-            skillCard.SetData(heroInfoSetting.skillSettings.GetValueOrDefault(characterSkills), 1);
+            skillCard.Init(heroController,this);
+            skillCard.SetData(heroController.heroInfoSetting.skillSettings.GetValueOrDefault(characterSkills), 1, characterSkills);
         }
+        health.Init(heroController, this);
+        mana.Init(heroController, this);
+        damage.Init(heroController, this);
+        speed.Init(heroController, this);
+
+        health.SetData(heroController.heroInfoSetting.healthSetting, 1);
+        mana.SetData(heroController.heroInfoSetting.manaSetting, 1);
+        damage.SetData(heroController.heroInfoSetting.damageSetting, 1);
+        speed.SetData(heroController.heroInfoSetting.speedSetting, 1);
     }
 
-    private void SetInfo()
+    public void SetInfo(AbstractSkillSetting skillSetting)
     {
-
+        _AvatarSkill.sprite = skillSetting.Avatar;
+        _nameSkill.text = skillSetting.Name;
+        _description.text = skillSetting.Description;
+    }
+    public void SetInfo(HealthSetting healthSetting)
+    {
+        _AvatarSkill.sprite = healthSetting.iconHealth;
+        _nameSkill.text = healthSetting.Name;
+        _description.text = healthSetting.introHealth;
+    }
+    public void SetInfo(ManaSetting manaSetting)
+    {
+        _AvatarSkill.sprite = manaSetting.iconMana;
+        _nameSkill.text = manaSetting.Name;
+        _description.text = manaSetting.introMana;
+    }
+    public void SetInfo(DamageSetting damageSetting)
+    {
+        _AvatarSkill.sprite = damageSetting.iconDamage;
+        _nameSkill.text = damageSetting.Name;
+        _description.text = damageSetting.introDamage;
+    }
+    public void SetInfo(SpeedSetting speedSetting)
+    {
+        _AvatarSkill.sprite = speedSetting.iconSpeed;
+        _nameSkill.text = speedSetting.Name;
+        _description.text = speedSetting.introSpeed;
     }
 
 }
