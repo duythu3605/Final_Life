@@ -32,12 +32,15 @@ public class HealthController : MonoBehaviour
     private HealthController _healthController;
 
     private float _currentHealth;
-    public float CurrentHealth { get => _currentHealth; private set { _currentHealth = value; onHealthChange?.Invoke(_currentHealth); if (CurrentHealth < MaxHealth && transform.gameObject.CompareTag("Hero")) StartCoroutine(RecoveringHealth()); } }
+    public float CurrentHealth { get => _currentHealth; private set { _currentHealth = value; onHealthChange?.Invoke(_currentHealth); if (CurrentHealth < MaxHealth && transform.gameObject.CompareTag("Hero") && !isDead) StartCoroutine(RecoveringHealth()); } }
 
     private float _maxHealth;
     public float MaxHealth { get => _maxHealth; private set { _maxHealth = value; onMaxHealthChange?.Invoke(_maxHealth); } }
 
     private bool isRecoverHealth = false;
+
+    public bool isDead = false;
+    public Transform _respawnPos;
 
     public void Init(HealthSetting healthSetting, int levelIndex)
     {
@@ -52,6 +55,12 @@ public class HealthController : MonoBehaviour
     public void OnHealthDecrease(float value) {
         _animator.Play("Hurt");
         CurrentHealth -= value; 
+
+        if(CurrentHealth <= 0)
+        {
+            isDead = true;
+            OnDead();
+        }
     }
 
 
@@ -68,7 +77,30 @@ public class HealthController : MonoBehaviour
             isRecoverHealth = true;
         }
     }
-
+    public void OnDead()
+    {
+        _animator.Play("Dead");
+        StartCoroutine(Disappear());
+    }
+    private IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        if (gameObject.CompareTag("Hero"))
+        {
+            transform.position = _respawnPos.position;
+            StartCoroutine(Appear());
+        }
+    }
+    private IEnumerator Appear()
+    {
+        isDead = false;
+        yield return new WaitForSeconds(1);
+        CurrentHealth = MaxHealth;
+        transform.position = _respawnPos.position;
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        _animator.Play("Idle");
+    }
     private IEnumerator RecoveringHealth()
     {
 

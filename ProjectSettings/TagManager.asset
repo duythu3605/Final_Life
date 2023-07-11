@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hero
   - Enemy
+  - Patron
   layers:
   - Default
   - TransparentFX
@@ -52,11 +53,14 @@ TagManager:
   - name: Decor
     uniqueID: 1293693767
     locked: 0
-  - name: Interract
-    uniqueID: 2052466069
-    locked: 0
   - name: Character
     uniqueID: 3346442799
+    locked: 0
+  - name: Patron
+    uniqueID: 3350816723
+    locked: 0
+  - name: Interract
+    uniqueID: 2052466069
     locked: 0
   - name: UI
     uniqueID: 3440634417

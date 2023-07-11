@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private Transform _target;
 
-    private Vector2 _direction => (_target == null) ? Vector2.zero : (_target.transform.position - transform.position).normalized;
+    private Vector2 _direction;
     #region UI
     [SerializeField]
     private SliderBar _healthBar;
@@ -32,14 +32,22 @@ public class EnemyController : MonoBehaviour
     
     public EnemySetting enemySetting;
     public int Points;
-    public bool isStep = false;
     public float radius = 5;
     public float _argoRange = 2;
-    private GameManager _gameManager;
+
+    private float moveInterval = 4f;
+    private float timer;
+
+    private float holdState = 3f;
+    private float timerWait;
+    private bool isDead = false;
+
+    private Animator animator;
     public EnemyState CurrentState { get; set; }
 
     private void Update()
-    {        
+    {       
+        FindAround();
         State(CurrentState);
     }
 
@@ -47,19 +55,33 @@ public class EnemyController : MonoBehaviour
     {
         switch (enemyState)
         {
-            case EnemyState.Patron:
-                _target = null;
-                enemyMove.OnMove(_direction);
+            case EnemyState.None:
+                timer -= Time.deltaTime;
                 if (FindAround())
-                {                        
+                {
                     CurrentState = EnemyState.Chasing;
                 }
-                else
-                {                   
+                if (timer <= 0)
+                {
+                    timer = moveInterval;
+                    _target = null;
                     CurrentState = EnemyState.Patron;
                 }
                 break;
+            case EnemyState.Patron:
+                _direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+                enemyMove.OnMove(_direction);
+                if (FindAround())
+                {
+                    CurrentState = EnemyState.Chasing;
+                }
+                else
+                {
+                    CurrentState = EnemyState.None;
+                }
+                break;
             case EnemyState.Chasing:
+                _direction = (_target.position - transform.position).normalized ;
                 Chasing(_target);
                 break;
             case EnemyState.Attack:
@@ -71,60 +93,55 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+
+
     public bool FindAround()
     {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, radius);
-        if (collider != null && collider.gameObject.CompareTag("Hero"))
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius);
+
+        foreach(Collider2D collider in colliders)
         {
-            _target = collider.transform;
-            return true;
+            if (collider.CompareTag("Hero"))
+            {
+                timer = moveInterval;
+                _target = collider.transform;
+                return true;    
+            }
         }
         return false;
     }
 
     private void Attack()
-    {
-        if (FindAround())
-        {
-            AttackEvent.NotifyObservers(manaController);
-            CurrentState = EnemyState.Attack;
-        }
-        else
-        {
-            CurrentState = EnemyState.Chasing;
-        }
+    {       
+        AttackEvent.NotifyObservers(manaController);
+        CurrentState = EnemyState.None;
     }
 
     private void Chasing(Transform target)
     {
-        float distance =  Vector2.Distance(target.position, transform.position);
-        
+        float distance = Vector2.Distance(target.position, transform.position);
         enemyMove.OnMove(_direction);
-        if(distance < _argoRange)
+        if (distance <= _argoRange)
         {
+            Debug.Log("Attack");
             CurrentState = EnemyState.Attack;
         }
-        else
+        if(distance > _argoRange)
         {
-            if (FindAround())
-            {
-                CurrentState = EnemyState.Chasing;
-            }
-            else
-            {
-                CurrentState = EnemyState.Patron;
-            }
+            CurrentState = EnemyState.None;
         }
     }
 
 
 
-    private void Start()
+    public void Init(PoolSpawnEnemy poolSpawnEnemy)
     {
         InitComponent();
         InitDataStream();
         IniEvent();
-        InitData();        
+        InitData();
+        timer = moveInterval;
+        timerWait = holdState;
     }
     private void InitComponent()
     {
@@ -132,7 +149,8 @@ public class EnemyController : MonoBehaviour
         healthController = GetComponent<HealthController>();
         manaController = GetComponent<ManaController>();
         speedController = GetComponent<SpeedController>();
-        enemyMove = GetComponent<MoveMent>();        
+        enemyMove = GetComponent<MoveMent>();
+        animator = GetComponent<Animator>();
     }
 
     private void InitData()
@@ -152,7 +170,7 @@ public class EnemyController : MonoBehaviour
 
         healthController.onHealthChange += (currentHealth) =>
         {
-            if (currentHealth <= 0) CurrentState = EnemyState.Dead;
+            if (currentHealth <= 0) CurrentState= EnemyState.Dead;
         };
     }
 
@@ -165,7 +183,10 @@ public class EnemyController : MonoBehaviour
     private void OnDead()
     {
         GameManager.Instance.heroController.potentialPointController.OnPPIncrease(Points);
-        GetComponent<Animator>().Play("Dead");       
-        Destroy(gameObject, 3);
+        animator.Play("Dead");
+        CurrentState = EnemyState.None;
+        gameObject.SetActive(false);
+        isDead = true;
+        InitData();
     }
 }
