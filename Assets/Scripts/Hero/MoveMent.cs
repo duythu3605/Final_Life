@@ -22,7 +22,7 @@ public class MoveMent : MonoBehaviour
         _rb2D = GetComponent<Rigidbody2D>();
     } 
 
-        public void OnMove(Vector2 vector)
+    public void OnMove(Vector2 vector)
     {
         if(_rb2D.velocity.magnitude < 0.1f)
         {

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fd80711f7ff584f9ca3cf5e361f0e8, type: 3}
+  m_Name: Wolf_enemySetting
+  m_EditorClassIdentifier: 
+  Name: Wolf_enemySetting
+  healthSetting: {fileID: 11400000, guid: 0a8e25db2927a684f9cb71e9819af5aa, type: 2}
+  manaSetting: {fileID: 11400000, guid: d9b80613b8745eb42b152e566f0ebeb8, type: 2}
+  speedLevelIndex: {fileID: 11400000, guid: 735035ed26b607b4098364da2ed3ccf4, type: 2}
+  Point: 500
+  skillSettings:
+    _serializedList:
+    - Key: 0
+      Value: {fileID: 11400000, guid: 58945028a19123f4bba3947f46225260, type: 2}

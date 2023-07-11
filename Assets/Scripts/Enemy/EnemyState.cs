@@ -1,7 +1,8 @@
 public enum EnemyState
 {
-    Chasing,
+    None =0,
     Patron,
+    Chasing,   
     Attack,
     Dead,
 }

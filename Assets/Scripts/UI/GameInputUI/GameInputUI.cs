@@ -13,6 +13,8 @@ public class GameInputUI : MonoBehaviour
     [SerializeField] private Image[] _abilityButton;
     private float heroCheckMana;
 
+    public bool isStartSkill = false;
+
     public void Init()
     {
         for (int i = 0; i < _abilityButton.Length; i++)
@@ -38,15 +40,16 @@ public class GameInputUI : MonoBehaviour
         _secondSkillButton.onClick.AddListener(() =>
         {            
             onSecondSkill?.Invoke();
-            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.SecondSkill].coolDownTime, _abilityButton[1], _secondSkillButton));
+            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.SecondSkill].coolDownTime, _abilityButton[1], _secondSkillButton));                   
         });
 
         _thirdSkillButton.onClick.AddListener(() =>
         {            
             onThirdSkill?.Invoke();
-            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.ThirdSkill].coolDownTime, _abilityButton[2], _thirdSkillButton));       
+            StartCoroutine(StartAbility(heroActionSkillBehavior[CharacterSkills.ThirdSkill].coolDownTime, _abilityButton[2], _thirdSkillButton));
         });
     }
+
 
     private IEnumerator StartAbility(float time, Image abilityImage, Button button)
     {
@@ -65,7 +68,7 @@ public class GameInputUI : MonoBehaviour
                 abilityImage.fillAmount = 0;
             }
         }
-
+        isStartSkill = false;
         button.interactable = true;
     }
 }

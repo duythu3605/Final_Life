@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c160b26283c144691c1f14be4ec97c, type: 3}
   m_Name: SnakespeedSetting
   m_EditorClassIdentifier: 
+  iconSpeed: {fileID: 0}
+  Name: 
+  introSpeed: 
   levelSettings:
     _serializedList:
     - Key: 1
       Value:
-        Speed: 180
+        Speed: 165

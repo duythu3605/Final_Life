@@ -22,7 +22,7 @@ public class UIPaperSkill : MonoBehaviour
     {
         var health = Instantiate(_itemSkillCard, _skillParent);
         var mana = Instantiate(_itemSkillCard, _skillParent);
-        var damage = Instantiate(_itemSkillCard, _skillParent);
+        //var damage = Instantiate(_itemSkillCard, _skillParent);
         var speed = Instantiate(_itemSkillCard, _skillParent);
         
         //Skill
@@ -35,12 +35,12 @@ public class UIPaperSkill : MonoBehaviour
         }
         health.Init(heroController, this);
         mana.Init(heroController, this);
-        damage.Init(heroController, this);
+        //damage.Init(heroController, this);
         speed.Init(heroController, this);
 
         health.SetData(heroController.heroInfoSetting.healthSetting, 1);
         mana.SetData(heroController.heroInfoSetting.manaSetting, 1);
-        damage.SetData(heroController.heroInfoSetting.damageSetting, 1);
+        //damage.SetData(heroController.heroInfoSetting.damageSetting, 1);
         speed.SetData(heroController.heroInfoSetting.speedSetting, 1);
     }
 
