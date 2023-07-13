@@ -14,7 +14,6 @@ public class EnemySpawnItem : MonoBehaviour
             int i = Random.Range(0, _items.Count);
             var itemobj = Instantiate(_items[i]);
             itemobj.transform.position = transform.position;
-        }
-        Destroy(gameObject);
+        }       
     }
 }

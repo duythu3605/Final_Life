@@ -1,5 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2441398276996857756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 642835237523598709}
+  - component: {fileID: 7370014417776319576}
+  m_Layer: 5
+  m_Name: BoxHealthLost
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &642835237523598709
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441398276996857756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7259528535531923611}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7370014417776319576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2441398276996857756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 1
+  m_Spacing: 5
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &7259528535531923610
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,6 +95,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7259528535931167522}
+  - {fileID: 642835237523598709}
   m_Father: {fileID: 7259528536711532075}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -57,7 +121,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -948524497
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -312,6 +376,7 @@ GameObject:
   - component: {fileID: 7259528536711532064}
   - component: {fileID: 7259528536711532070}
   - component: {fileID: 2974382016779786556}
+  - component: {fileID: 4178092624098871018}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Enemy
@@ -375,7 +440,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -948524497
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -37699613, guid: fd6c730469cfc9d47afa3f17e1ea3a53, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -477,6 +542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
   _healthBar: {fileID: 7259528535931167532}
+  _healthLost: {fileID: 0}
   healthController: {fileID: 0}
   manaController: {fileID: 0}
   speedController: {fileID: 0}
@@ -568,6 +634,24 @@ MonoBehaviour:
   _items:
   - {fileID: 2148266838855499872, guid: 2834cbbae2114584bb19bc3657b0a9e9, type: 3}
   - {fileID: 9147163598821707235, guid: d9d7cb70b8ba1e0458195817519a18c7, type: 3}
+  - {fileID: 7486032554300283852, guid: d4b2d5142a87c0243ae051d7520c3401, type: 3}
+  - {fileID: 3961867791242677288, guid: 6deb077ddd2df19458be5e8940b9c5b2, type: 3}
+  - {fileID: 6352153404358664723, guid: bef65640b0b4e714abf6368d4f160a2c, type: 3}
+  - {fileID: 1021188320382612570, guid: 76219dbd92ce5ab4ebf9cd17d89737ee, type: 3}
+--- !u!114 &4178092624098871018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259528536711532052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6781110003e8b9342be2dd3e0ec6370f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _parentHealthLost: {fileID: 642835237523598709}
+  healtLostText: {fileID: 2559251419752723624, guid: 71c49a6d2001d38499953180ccb38ae1, type: 3}
 --- !u!1 &7259528536749882171
 GameObject:
   m_ObjectHideFlags: 0

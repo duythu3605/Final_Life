@@ -31,12 +31,23 @@ public class SkillCard : MonoBehaviour
         _upSkill.onClick.AddListener(() => {
             if (Int32.Parse(_levelSkill.text) < healthSetting.levelSettings.Count)
             {
-                _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
-                _heroController.healthController.LevelUp();
+                int pointupSkill = healthSetting.levelSettings.GetValueOrDefault(Int32.Parse(_levelSkill.text)).PotentialUp;
+
+                if (_heroController.potentialPointController.CurrentPPoint >= pointupSkill)
+                {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Point Lost: " + pointupSkill);
+                    _heroController.potentialPointController.OnPPDecrease(pointupSkill);
+                    _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();                    
+                    _heroController.healthController.LevelUp();
+                }
+                else
+                {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Not Enough Point! Need more " + pointupSkill + " points to up Skill.");
+                }
             }
             else
             {
-                Debug.Log("MaxSkill");
+                _uIPaperSkill._uINotice.showNotice.Invoke("MaxSkill");
             }
         });
         _showInfor.onClick.RemoveAllListeners();
@@ -54,12 +65,24 @@ public class SkillCard : MonoBehaviour
         _upSkill.onClick.AddListener(() => {
             if (Int32.Parse(_levelSkill.text) < manaSetting.levelSettings.Count)
             {
-                _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
-                _heroController.manaController.LevelUp();
+                int pointupSkill = manaSetting.levelSettings.GetValueOrDefault(Int32.Parse(_levelSkill.text)).PotentialUp;
+
+                if (_heroController.potentialPointController.CurrentPPoint >= pointupSkill)
+                {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Point Lost: " + pointupSkill);
+                    _heroController.potentialPointController.OnPPDecrease(pointupSkill);
+                    _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
+                    
+                    _heroController.manaController.LevelUp();
+                }
+                else
+                {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Not Enough Point! Need more " + pointupSkill + " points to up Skill.");
+                }
             }
             else
             {
-                Debug.Log("MaxSkill");
+                _uIPaperSkill._uINotice.showNotice.Invoke("MaxSkill");
             }
         });
         _showInfor.onClick.RemoveAllListeners();
@@ -68,29 +91,38 @@ public class SkillCard : MonoBehaviour
             _uIPaperSkill.SetInfo(manaSetting);
         });
     }
-    public void SetData(DamageSetting damageSetting, int indexLevel)
-    {
-        _iconSkill.enabled = true;
-        _iconSkill.sprite = damageSetting.iconDamage;
-        _nameSkill.text = damageSetting.introDamage;
-        _upSkill.onClick.RemoveAllListeners();
-        _upSkill.onClick.AddListener(() => {
-        if (Int32.Parse(_levelSkill.text) < damageSetting.levelSettings.Count)
-        {
-            _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
-            _heroController.damageController.LevelUp();
-            }
-            else
-            {
-                Debug.Log("MaxSkill");
-            }
-        });
-        _showInfor.onClick.RemoveAllListeners();
-        _showInfor.onClick.AddListener(() =>
-        {
-            _uIPaperSkill.SetInfo(damageSetting);
-        });
-    }
+    //public void SetData(DamageSetting damageSetting, int indexLevel)
+    //{
+    //    _iconSkill.enabled = true;
+    //    _iconSkill.sprite = damageSetting.iconDamage;
+    //    _nameSkill.text = damageSetting.introDamage;
+    //    _upSkill.onClick.RemoveAllListeners();
+    //    _upSkill.onClick.AddListener(() => {
+    //    if (Int32.Parse(_levelSkill.text) < damageSetting.levelSettings.Count)
+    //    {
+    //            int pointupSkill = damageSetting.levelSettings.GetValueOrDefault(Int32.Parse(_levelSkill.text)).PotentialUp;
+
+    //            if (_heroController.potentialPointController.CurrentPPoint >= pointupSkill)
+    //            {
+    //                _heroController.potentialPointController.OnPPDecrease(pointupSkill);
+    //                _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
+    //                 _heroController.damageController.LevelUp();
+    //                else
+    //                {
+    //                    _uIPaperSkill._uINotice.showNotice.Invoke("Not Enough Point! ");
+    //                }
+    //            }
+    //        else
+    //        {
+    //            _uIPaperSkill._uINotice.showNotice.Invoke("MaxSkill");
+    //        }
+    //    });
+    //    _showInfor.onClick.RemoveAllListeners();
+    //    _showInfor.onClick.AddListener(() =>
+    //    {
+    //        _uIPaperSkill.SetInfo(damageSetting);
+    //    });
+    //}
     public void SetData(SpeedSetting speedSetting, int indexLevel)
     {
         _iconSkill.enabled = true;
@@ -100,12 +132,24 @@ public class SkillCard : MonoBehaviour
         _upSkill.onClick.AddListener(() => {
             if (Int32.Parse(_levelSkill.text) < speedSetting.levelSettings.Count)
             {
-                _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
-                _heroController.speedController.LevelUp();
+                int pointupSkill = speedSetting.levelSettings.GetValueOrDefault(Int32.Parse(_levelSkill.text)).PotentialUp;
+
+                if (_heroController.potentialPointController.CurrentPPoint >= pointupSkill)
+                {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Point Lost: " + pointupSkill);
+                    _heroController.potentialPointController.OnPPDecrease(pointupSkill);
+                    _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
+                    
+                    _heroController.speedController.LevelUp();
+                }
+                else
+                {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Not Enough Point! Need more " + pointupSkill +" points to up Skill.");
+                }
             }
             else
             {
-                Debug.Log("MaxSkill");
+                _uIPaperSkill._uINotice.showNotice.Invoke("MaxSkill");
             }
         });
         _showInfor.onClick.RemoveAllListeners();
@@ -125,22 +169,24 @@ public class SkillCard : MonoBehaviour
             if (Int32.Parse(_levelSkill.text) < _heroController.heroInfoSetting.skillSettings[characterSkills].Level)
             {                
                 int pointUpSkill = skill.PotentialPoint;
-                int pointLost = pointUpSkill * indexLevel + (pointUpSkill * 30 / 100);
-                Debug.Log("PoinLost: " + pointLost);
+                int pointLost = pointUpSkill * Int32.Parse(_levelSkill.text) + (pointUpSkill * 30 / 100);
+                
                 if (_heroController.potentialPointController.CurrentPPoint >= pointLost)
                 {
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Point Lost: " + pointLost);
                     _heroController.potentialPointController.OnPPDecrease(pointLost);
                     _levelSkill.text = (Int32.Parse(_levelSkill.text) + indexLevel).ToString();
                     _heroController.heroSkillSystem.UpSkill(_heroController.heroInfoSetting, characterSkills, Int32.Parse(_levelSkill.text));
+                    
                 }
                 else
                 {
-                    Debug.Log("Not Enough Point");
+                    _uIPaperSkill._uINotice.showNotice.Invoke("Not Enough Point! Need more  " + pointLost +" point to up Skill.");
                 } 
             }
             else
             {
-                Debug.Log("MaxSkill");
+                _uIPaperSkill._uINotice.showNotice.Invoke("MaxSkill");
             }
         });
 

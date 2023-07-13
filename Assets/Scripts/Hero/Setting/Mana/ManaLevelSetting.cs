@@ -6,4 +6,5 @@ using UnityEngine;
 public class ManaLevelSetting
 {
     public float Mana;
+    public int PotentialUp;
 }

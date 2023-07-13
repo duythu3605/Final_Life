@@ -6,4 +6,5 @@ using UnityEngine;
 public class SpeedLevelSetting 
 {
     public float Speed;
+    public int PotentialUp;
 }

@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
     #region UI
     [SerializeField]
     private SliderBar _healthBar;
+    [HideInInspector]
+    public HealthLost _healthLost;
+
     #endregion
 
     #region Controller
@@ -29,7 +32,8 @@ public class EnemyController : MonoBehaviour
     [HideInInspector]
     public MoveMent enemyMove;
     #endregion
-    
+
+    private EnemySpawnItem _spawnItem;
     public EnemySetting enemySetting;
     public int Points;
     public float radius = 5;
@@ -44,6 +48,8 @@ public class EnemyController : MonoBehaviour
 
     private Animator animator;
     public EnemyState CurrentState { get; set; }
+
+    
 
     private void Update()
     {       
@@ -151,6 +157,8 @@ public class EnemyController : MonoBehaviour
         speedController = GetComponent<SpeedController>();
         enemyMove = GetComponent<MoveMent>();
         animator = GetComponent<Animator>();
+        _spawnItem = GetComponent<EnemySpawnItem>();
+        _healthLost = GetComponent<HealthLost>();
     }
 
     private void InitData()
@@ -160,6 +168,7 @@ public class EnemyController : MonoBehaviour
         manaController.Init(enemySetting.manaSetting, 1);
         speedController.Init(enemySetting.speedLevelIndex, 1);
         enemyMove.Init(this);
+        _healthLost.Init();
         CurrentState = EnemyState.Patron;
     }
 
@@ -181,9 +190,10 @@ public class EnemyController : MonoBehaviour
     }
 
     private void OnDead()
-    {
-        GameManager.Instance.heroController.potentialPointController.OnPPIncrease(Points);
+    {        
         animator.Play("Dead");
+        GameManager.Instance.heroController.potentialPointController.OnPPIncrease(Points);
+        _spawnItem.SpawnItem();
         CurrentState = EnemyState.None;
         gameObject.SetActive(false);
         isDead = true;

@@ -31,7 +31,7 @@ public class AttackMeleeThirdSkillBehavior : AbstractSkillBehavior
     {
         if (manaController.CurrentMana < manaExpend)
         {
-            Debug.Log("khong du mana");
+            GameManager.Instance._uiManager._uINotice.showNotice.Invoke("Not Enough Mana!");
             return;
         }
         if (IsCoolDown) return;

@@ -20,21 +20,28 @@ MonoBehaviour:
     - Key: 1
       Value:
         Health: 100
+        PotentialUp: 1000
     - Key: 2
       Value:
         Health: 300
+        PotentialUp: 2300
     - Key: 3
       Value:
         Health: 900
+        PotentialUp: 3300
     - Key: 4
       Value:
         Health: 1800
+        PotentialUp: 4300
     - Key: 5
       Value:
         Health: 5400
+        PotentialUp: 5300
     - Key: 6
       Value:
         Health: 8000
+        PotentialUp: 6300
     - Key: 7
       Value:
         Health: 10000
+        PotentialUp: 7300
