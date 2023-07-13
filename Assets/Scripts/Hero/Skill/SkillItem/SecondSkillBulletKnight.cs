@@ -14,7 +14,11 @@ public class SecondSkillBulletKnight : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TakeDamage(collision, _damage);
+        if (collision.CompareTag("Enemy"))
+        {
+            TakeDamage(collision, _damage);
+            collision.GetComponent<EnemyController>()._healthLost.healthLost.Invoke(_damage);
+        }
 
         Destroy(gameObject);
     }

@@ -20,21 +20,28 @@ MonoBehaviour:
     - Key: 1
       Value:
         Speed: 200
+        PotentialUp: 1000
     - Key: 2
       Value:
         Speed: 220
+        PotentialUp: 2300
     - Key: 3
       Value:
         Speed: 240
+        PotentialUp: 3300
     - Key: 4
       Value:
         Speed: 260
+        PotentialUp: 4300
     - Key: 5
       Value:
         Speed: 280
+        PotentialUp: 5300
     - Key: 6
       Value:
         Speed: 300
+        PotentialUp: 6300
     - Key: 7
       Value:
         Speed: 320
+        PotentialUp: 7300

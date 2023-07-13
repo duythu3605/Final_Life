@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08baf264e8a8774eaa783108d69f7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _objHealthLost: {fileID: 8710914809141576381, guid: 45185e595e8e5954abfa5baf9cb973a8, type: 3}
 --- !u!61 &8570118219469326091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -93,7 +94,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8125, y: 1.68}
+  m_Size: {x: 1.49, y: 1.58}
   m_EdgeRadius: 0
 --- !u!212 &7837552660833514044
 SpriteRenderer:
@@ -134,7 +135,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -948524497
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -227567780, guid: 0aaaf0aa9fcc3f549b46769ad8e4e9ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

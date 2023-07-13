@@ -15,15 +15,17 @@ public class BulletBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        TakeDamage(collision, _damage);
+        if (collision.CompareTag("Enemy"))
+        {
+            TakeDamage(collision, _damage);
+            collision.GetComponent<EnemyController>()._healthLost.healthLost.Invoke(_damage);
+        }
         Destroy(gameObject);
     }
 
     protected void TakeDamage(Collider2D collision, float damage)
     {
         HealthController healthController = collision?.GetComponent<HealthController>();
-
-
         if (healthController == null) return;
         //HealLost.instance.onReciveDamage.Invoke(damage);
         healthController.OnHealthDecrease(damage);

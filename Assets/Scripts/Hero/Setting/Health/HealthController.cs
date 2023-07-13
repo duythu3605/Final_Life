@@ -59,7 +59,10 @@ public class HealthController : MonoBehaviour
         if(CurrentHealth <= 0)
         {
             isDead = true;
-            OnDead();
+            if (transform.CompareTag("Hero"))
+            {
+                OnDead();
+            }
         }
     }
 
@@ -80,6 +83,7 @@ public class HealthController : MonoBehaviour
     public void OnDead()
     {
         _animator.Play("Dead");
+        GameManager.Instance._uiManager._uINotice.SetNotice("You Dead!");
         StartCoroutine(Disappear());
     }
     private IEnumerator Disappear()

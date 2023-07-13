@@ -17,8 +17,12 @@ public class ThirdSkillKnightBulletBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         objCount++;
-        TakeDamage(collision, _damage);
-       if(objCount >= 5)
+        if (collision.CompareTag("Enemy"))
+        {
+            TakeDamage(collision, _damage);
+            collision.GetComponent<EnemyController>()._healthLost.healthLost.Invoke(_damage);
+        }
+        if (objCount >= 5)
         {
             Destroy(gameObject);
         }

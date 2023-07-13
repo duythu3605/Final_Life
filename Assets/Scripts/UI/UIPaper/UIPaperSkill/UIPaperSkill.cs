@@ -17,9 +17,11 @@ public class UIPaperSkill : MonoBehaviour
     public Transform _skillParent;
     public SkillCard _itemSkillCard;
 
+    public UINotice _uINotice;
 
-    public void Init(HeroController heroController)
+    public void Init(HeroController heroController, UINotice uINotice)
     {
+        _uINotice = uINotice;
         var health = Instantiate(_itemSkillCard, _skillParent);
         var mana = Instantiate(_itemSkillCard, _skillParent);
         //var damage = Instantiate(_itemSkillCard, _skillParent);
@@ -32,16 +34,17 @@ public class UIPaperSkill : MonoBehaviour
             var skillCard = Instantiate(_itemSkillCard, _skillParent);
             skillCard.Init(heroController,this);
             skillCard.SetData(heroController.heroInfoSetting.skillSettings.GetValueOrDefault(characterSkills), 1, characterSkills);
+            
         }
         health.Init(heroController, this);
         mana.Init(heroController, this);
         //damage.Init(heroController, this);
         speed.Init(heroController, this);
 
-        health.SetData(heroController.heroInfoSetting.healthSetting, 1);
-        mana.SetData(heroController.heroInfoSetting.manaSetting, 1);
+        health.SetData(heroController.heroInfoSetting.healthSetting, heroController._dataPlayer.GetValueSkill("Health"));
+        mana.SetData(heroController.heroInfoSetting.manaSetting, heroController._dataPlayer.GetValueSkill("Mana"));
         //damage.SetData(heroController.heroInfoSetting.damageSetting, 1);
-        speed.SetData(heroController.heroInfoSetting.speedSetting, 1);
+        speed.SetData(heroController.heroInfoSetting.speedSetting, heroController._dataPlayer.GetValueSkill("Speed"));
     }
 
     public void SetInfo(AbstractSkillSetting skillSetting)

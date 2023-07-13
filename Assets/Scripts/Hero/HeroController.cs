@@ -49,6 +49,7 @@ public class HeroController : MonoBehaviour
     [HideInInspector]
     public MoveMent heroMove;
     [HideInInspector]
+    public DataPlayer _dataPlayer;
     public void InitComponent()
     {
         heroSkillSystem = GetComponent<HeroSkillSystem>();
@@ -60,6 +61,7 @@ public class HeroController : MonoBehaviour
         potentialPointController = GetComponent<PotentialPointController>();
         _inventory = GetComponent<Inventory>();
         _equipMentManager = GetComponent<EquipMentManager>();
+        _dataPlayer = GetComponent<DataPlayer>();
         //heroInteract = GetComponent<HeroInteractItem>();
     }
     public void InitEvent()
@@ -75,13 +77,20 @@ public class HeroController : MonoBehaviour
     {
         heroSkillSystem.Init(this);
         heroMove.Init(this);
-        healthController.Init(heroInfoSetting.healthSetting, 1);
-        manaController.Init(heroInfoSetting.manaSetting, 1);
-        damageController.Init(heroInfoSetting.damageSetting, 1);
-        speedController.Init(heroInfoSetting.speedSetting, 1);
-        potentialPointController.Init();
         _equipMentManager.Init(_inventory);
+
+        _dataPlayer.SetValueSkill("Health", 1);
+        _dataPlayer.SetValueSkill("Mana", 1);
+        _dataPlayer.SetValueSkill("Damage", 1);
+        _dataPlayer.SetValueSkill("Speed", 1);
+        healthController.Init(heroInfoSetting.healthSetting, _dataPlayer.GetValueSkill("Health"));
+        manaController.Init(heroInfoSetting.manaSetting, _dataPlayer.GetValueSkill("Mana"));
+        damageController.Init(heroInfoSetting.damageSetting, _dataPlayer.GetValueSkill("Damage"));
+        speedController.Init(heroInfoSetting.speedSetting, _dataPlayer.GetValueSkill("Speed"));
+        potentialPointController.Init();
+        
     }
+
     private void InitDataStream()
     {        
         AttackEvent ??= new Observable<ManaController>();

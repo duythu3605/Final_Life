@@ -39,6 +39,7 @@ public class MoveMent : MonoBehaviour
         if (transform.CompareTag("Enemy"))
         {
             transform.rotation = Quaternion.Euler(new Vector3(0, direction.x > 0 ? 180 : 0, 0));
+            transform.GetChild(0).rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             speed = _enemyController.speedController.CurrentSpeed;
         }
 

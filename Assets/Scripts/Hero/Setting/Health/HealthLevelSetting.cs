@@ -6,4 +6,5 @@ using UnityEngine;
 public class HealthLevelSetting 
 {
     public float Health;
+    public int PotentialUp;
 }
