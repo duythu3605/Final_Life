@@ -21,7 +21,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - MiniMap
   - 
   - 
   - 
@@ -64,4 +64,10 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3440634417
+    locked: 0
+  - name: New Layer 8
+    uniqueID: 3909788307
+    locked: 0
+  - name: MiniMap
+    uniqueID: 1781170295
     locked: 0
