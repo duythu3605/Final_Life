@@ -190,7 +190,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void OnDead()
-    {        
+    {           
         animator.Play("Dead");
         GameManager.Instance.heroController.potentialPointController.OnPPIncrease(Points);
         _spawnItem.SpawnItem();
