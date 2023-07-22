@@ -20,6 +20,9 @@ public class GameManager : GameSingleton<GameManager>
     [HideInInspector]
     public UIManager _uiManager;
 
+    [HideInInspector]
+    public MiniMapCamera _miniMap;
+
     #endregion
     protected override void OnAwake()
     {
@@ -36,6 +39,9 @@ public class GameManager : GameSingleton<GameManager>
 
         _uiManager = GameObject.Find(nameof(UIManager)).GetComponent<UIManager>();
         _uiManager.Init(heroController);
+
+        _miniMap = GameObject.Find(nameof(MiniMapCamera)).GetComponent<MiniMapCamera>();
+        _miniMap.Init(this);
 
         heroController.InitEvent();
     }
