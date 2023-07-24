@@ -11,7 +11,6 @@ public class GameInputUI : MonoBehaviour
 
     [Header("Ability")]
     [SerializeField] private Image[] _abilityButton;
-    private float heroCheckMana;
 
     public bool isStartSkill = false;
 

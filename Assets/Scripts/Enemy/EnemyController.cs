@@ -42,9 +42,9 @@ public class EnemyController : MonoBehaviour
     private float moveInterval = 4f;
     private float timer;
 
-    private float holdState = 3f;
-    private float timerWait;
-    private bool isDead = false;
+    //private float holdState = 3f;
+    //private float timerWait;
+    //private bool isDead = false;
 
     private Animator animator;
     public EnemyState CurrentState { get; set; }
@@ -147,7 +147,7 @@ public class EnemyController : MonoBehaviour
         IniEvent();
         InitData();
         timer = moveInterval;
-        timerWait = holdState;
+        //timerWait = holdState;
     }
     private void InitComponent()
     {
@@ -196,7 +196,7 @@ public class EnemyController : MonoBehaviour
         _spawnItem.SpawnItem();
         CurrentState = EnemyState.None;
         gameObject.SetActive(false);
-        isDead = true;
+        //isDead = true;
         InitData();
     }
 }

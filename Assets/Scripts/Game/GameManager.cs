@@ -23,6 +23,7 @@ public class GameManager : GameSingleton<GameManager>
     [HideInInspector]
     public MiniMapCamera _miniMap;
 
+
     #endregion
     protected override void OnAwake()
     {
