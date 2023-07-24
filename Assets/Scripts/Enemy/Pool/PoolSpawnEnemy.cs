@@ -51,7 +51,7 @@ public class PoolSpawnEnemy : MonoBehaviour
                 if (!_poolObject[i].activeInHierarchy)
                 {
                     _poolObject[i].SetActive(true);
-                    _poolObject[i].transform.position = _positionPatron[Random.RandomRange(0, _positionPatron.Count)].transform.position;
+                    _poolObject[i].transform.position = _positionPatron[Random.Range(0, _positionPatron.Count)].transform.position;   
                 }
             }
         }
