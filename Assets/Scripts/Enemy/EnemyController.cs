@@ -158,7 +158,7 @@ public class EnemyController : MonoBehaviour
         enemyMove = GetComponent<MoveMent>();
         animator = GetComponent<Animator>();
         _spawnItem = GetComponent<EnemySpawnItem>();
-        _healthLost = GetComponent<HealthLost>();
+        //_healthLost = GetComponent<HealthLost>();
     }
 
     private void InitData()
@@ -168,7 +168,7 @@ public class EnemyController : MonoBehaviour
         manaController.Init(enemySetting.manaSetting, 1);
         speedController.Init(enemySetting.speedLevelIndex, 1);
         enemyMove.Init(this);
-        _healthLost.Init();
+        //_healthLost.Init();
         CurrentState = EnemyState.Patron;
     }
 

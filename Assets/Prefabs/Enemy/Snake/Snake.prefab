@@ -524,7 +524,6 @@ GameObject:
   - component: {fileID: 2538643989048315138}
   - component: {fileID: 2538643989048315140}
   - component: {fileID: 7981281596732824094}
-  - component: {fileID: 728828593229133712}
   m_Layer: 0
   m_Name: Snake
   m_TagString: Enemy
@@ -786,20 +785,6 @@ MonoBehaviour:
   - {fileID: 3961867791242677288, guid: 6deb077ddd2df19458be5e8940b9c5b2, type: 3}
   - {fileID: 6352153404358664723, guid: bef65640b0b4e714abf6368d4f160a2c, type: 3}
   - {fileID: 1021188320382612570, guid: 76219dbd92ce5ab4ebf9cd17d89737ee, type: 3}
---- !u!114 &728828593229133712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2538643989048315190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6781110003e8b9342be2dd3e0ec6370f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _parentHealthLost: {fileID: 793918854626894633}
-  healtLostText: {fileID: 2559251419752723624, guid: 71c49a6d2001d38499953180ccb38ae1, type: 3}
 --- !u!1 &2538643989078145049
 GameObject:
   m_ObjectHideFlags: 0

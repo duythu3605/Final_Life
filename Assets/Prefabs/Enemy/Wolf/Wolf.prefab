@@ -376,7 +376,6 @@ GameObject:
   - component: {fileID: 7259528536711532064}
   - component: {fileID: 7259528536711532070}
   - component: {fileID: 2974382016779786556}
-  - component: {fileID: 4178092624098871018}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Enemy
@@ -638,20 +637,6 @@ MonoBehaviour:
   - {fileID: 3961867791242677288, guid: 6deb077ddd2df19458be5e8940b9c5b2, type: 3}
   - {fileID: 6352153404358664723, guid: bef65640b0b4e714abf6368d4f160a2c, type: 3}
   - {fileID: 1021188320382612570, guid: 76219dbd92ce5ab4ebf9cd17d89737ee, type: 3}
---- !u!114 &4178092624098871018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7259528536711532052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6781110003e8b9342be2dd3e0ec6370f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _parentHealthLost: {fileID: 642835237523598709}
-  healtLostText: {fileID: 2559251419752723624, guid: 71c49a6d2001d38499953180ccb38ae1, type: 3}
 --- !u!1 &7259528536749882171
 GameObject:
   m_ObjectHideFlags: 0
